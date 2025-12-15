@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kadir Veral'in son haberleri, etkinlikleri ve blog yazıları. Kitap tanıtımları, imza günleri ve edebiyat etkinlikleri."
+    />
+    <meta
+      name="keywords"
+      content="Kadir Veral haberler, yazar etkinlikleri, kitap tanıtımları, imza günleri, edebiyat haberleri"
+    />
+    <meta name="author" content="Kadir Veral" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.kadirveral.com/haberler.html"
+    />
+    <meta property="og:title" content="Haberler - Kadir Veral" />
+    <meta
+      property="og:description"
+      content="Kadir Veral'in son haberleri, etkinlikleri ve blog yazıları."
+    />
+    <meta
+      property="og:image"
+      content="https://www.kadirveral.com/public/2.webp"
+    />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://www.kadirveral.com/haberler.html"
+    />
+    <meta name="twitter:title" content="Haberler - Kadir Veral" />
+    <meta
+      name="twitter:description"
+      content="Kadir Veral'in son haberleri, etkinlikleri ve blog yazıları."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.kadirveral.com/public/2.webp"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.kadirveral.com/haberler.html" />
+
+    <title>Haberler - Kadir Veral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="news-page">
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <span class="logo-text">KADİR VERAL</span>
+          <span class="logo-line"></span>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">ANA SAYFA</a></li>
+            <li><a href="books.html" class="nav-link">KİTAPLAR</a></li>
+            <li>
+              <a href="gundem-arsivi.html" class="nav-link">KÖŞE YAZILARIM</a>
+            </li>
+            <li>
+              <a href="haberler.html" class="nav-link active">HABERLER</a>
+            </li>
+            <li><a href="form.html" class="nav-link">İLETİŞİM</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-links">
+          <a href="#" class="social-link"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="#" class="social-link"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" class="social-link"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="form.html" class="social-link"
+            ><i class="fa-regular fa-envelope"></i
+          ></a>
+        </div>
+
+        <button class="mobile-toggle" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page">
+
+      <section class="news-hero">
+        <div class="news-hero-media">
+          <img
+            src="public/8.jpeg"
+            alt="Kadir Veral, Mustafa Tunç İlk ve Ortaokulu buluşması"
+          />
+        </div>
+        <div class="news-hero-content">
+          <span class="news-hero-kicker">Okul Buluşması</span>
+          <h1 class="news-hero-title">
+            <span class="news-hero-name">
+              Kadir <span class="news-hero-name-accent">Veral</span></span>
+            <span class="news-hero-sub">· Mustafa Tunç İlk/Ortaokulu Buluşması</span>
+          </h1>
+          <p class="news-hero-text">
+            Mustafa Tunç İlk ve Ortaokulu’nda öğrencilerle bir araya geldiğimiz
+            buluşmada okuma kültürü, hayal gücü ve yazma cesareti üzerine
+            konuştuk. Genç okurların soruları ve paylaşımları, yeni hikâyelerin
+            ilhamı oldu.
+          </p>
+          <div class="news-hero-actions">
+            <a href="#news-list" class="btn primary">Tüm haberlere göz at</a>
+            <a href="form.html" class="btn ghost">Okulunuza davet edin</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="news-section" id="news-list">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-header-line"></div>
+            <h2 class="section-title">Haberler</h2>
+            <p class="section-desc">
+              Kitap Fuarları · Okul Buluşmaları · Son Çıkan Kitaplar
+            </p>
+            <div class="books-actions" style="margin-top: 28px">
+              <button
+                class="books-btn books-btn-secondary news-chip active"
+                data-filter="*"
+              >
+                Tümü
+              </button>
+              <button
+                class="books-btn books-btn-secondary news-chip"
+                data-filter="Fuar"
+              >
+                Kitap Fuarları
+              </button>
+              <button
+                class="books-btn books-btn-secondary news-chip"
+                data-filter="Okul"
+              >
+                Okul Buluşmaları
+              </button>
+              <button
+                class="books-btn books-btn-secondary news-chip"
+                data-filter="Yeni"
+              >
+                Son Çıkan Kitap
+              </button>
+            </div>
+          </div>
+
+          <div class="news-grid">
+            <article class="news-card featured" data-category="Okul">
+              <div class="news-card-image">
+                <img
+                  src="public/9.jpeg"
+                  alt="Mustafa Tunç İlk ve Ortaokulu Okur Buluşması"
+                />
+                <span class="news-badge">Öne Çıkan</span>
+              </div>
+              <div class="news-card-content">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar"></i> 4 Aralık 2025</span
+                  >
+                  <span class="news-category">Okul Buluşması</span>
+                </div>
+                <h3 class="news-title">
+                  Mustafa Tunç İlk/Ortaokulu’nda Okur Buluşması
+                </h3>
+                <p class="news-excerpt">
+                  Mustafa Tunç İlk ve Ortaokulu’nda düzenlenen buluşmada öğrencilerle birlikte hayal gücünün gücünü, kitapların açtığı kapıları ve yazarlık serüveninin perde arkasını konuştuk. Soru-cevap bölümüyle çocukların merak ettiklerine içtenlikle yanıt verdik; imza köşesinde ise kitaplarla birlikte hatıra fotoğrafları çektik.
+                </p>
+                <div class="news-covers-row">
+                  <img src="public/2.webp" alt="Yıldızlardan Gelen Misafir kapak">
+                  <img src="public/3.webp" alt="Kiraz Sofrası kapak">
+                  <img src="public/5.webp" alt="Zaman Makinesinde Geçmişe Yolculuk kapak">
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="Fuar">
+              <div class="news-card-image">
+                <img
+                  src="public/14.jpeg"
+                  alt="42. Uluslararası İstanbul Kitap Fuarı"
+                />
+              </div>
+              <div class="news-card-content">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar"></i> 13–21 Aralık 2025</span
+                  >
+                  <span class="news-category">Kitap Fuarı</span>
+                </div>
+                <h3 class="news-title">
+                  42. Uluslararası İstanbul Kitap Fuarı’nda Okurlarla Buluşuyoruz
+                </h3>
+                <p class="news-excerpt">
+                  13–21 Aralık 2025 tarihleri arasında TÜYAP Fuar ve Kongre Merkezi (İstanbul)’nde düzenlenecek 42. Uluslararası İstanbul Kitap Fuarı’nda okurlarımla bir araya geliyorum. Fuar boyunca Örger Yayınları standında (4. Salon – 426B) yer alacağım. Kitaplarımı incelemek, sohbet etmek ve imza almak için standımıza beklerim.
+                </p>
+                <div class="news-covers-row">
+                  <img src="public/2.webp" alt="Yıldızlardan Gelen Misafir kapak">
+                  <img src="public/6.webp" alt="İris kapak">
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="Fuar">
+              <div class="news-card-image">
+                <img src="public/10.jpeg" alt="Terme Belediyesi 2. Kitap Günleri" />
+              </div>
+              <div class="news-card-content">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar"></i> 21 Kasım 2025</span
+                  >
+                  <span class="news-category">Kitap Fuarı</span>
+                </div>
+                <h3 class="news-title">Terme Belediyesi 2. Kitap Günleri’nde İmza Buluşması</h3>
+                <p class="news-excerpt">
+                  21 Kasım 2025 tarihinde 10.30–15.00 saatleri arasında Terme Belediyesi 2. Kitap Günleri kapsamında okurlarımla buluşuyorum. Etkinlik süresince kitaplarımı imzalayacak, okurlarla sohbet etme fırsatı yakalayacağız. Tüm kitapseverleri buluşmamıza davet ediyorum.
+                </p>
+                <div class="news-covers-row">
+                  <img src="public/3.webp" alt="Kiraz Sofrası kapak">
+                  <img src="public/4.webp" alt="Amazonların Sırrı kapak">
+                </div>
+              </div>
+            </article>
+
+            <article class="news-card" data-category="Fuar">
+              <div class="news-card-image">
+                <img src="public/11.jpeg" alt="TÜYAP Samsun – Karadeniz 10. Kitap Fuarı" />
+              </div>
+              <div class="news-card-content">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar"></i> 1 Ekim 2025 · 13.00–15.00</span
+                  >
+                  <span class="news-category">Kitap Fuarı</span>
+                </div>
+                <h3 class="news-title">TÜYAP Samsun’da TYS İmza Günü</h3>
+                <p class="news-excerpt">
+                  27 Eylül–5 Ekim 2025 tarihleri arasında düzenlenen Karadeniz 10. Kitap Fuarı (Samsun) kapsamında, 1 Ekim 2025 günü 13.00–15.00 saatleri arasında Türkiye Yazarlar Sendikası (TYS) İmza Günü etkinliğinde okurlarla buluşuyorum. Salon 1 – Stand 120-C’de imza ve sohbet için sizleri bekliyorum.
+                </p>
+                
+              </div>
+            </article>
+
+            <article class="news-card" data-category="Fuar">
+              <div class="news-card-image">
+                <img src="public/12.jpeg" alt="Vezirköprü Kitap Günleri" />
+              </div>
+              <div class="news-card-content">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar"></i> 24 Eylül 2025 · 09.30–16.00</span
+                  >
+                  <span class="news-category">Kitap Fuarı</span>
+                </div>
+                <h3 class="news-title">Vezirköprü Kitap Günleri’nde İmza Günü</h3>
+                <p class="news-excerpt">
+                  22–28 Eylül 2025 tarihleri arasında Köprülü Mehmet Paşa Kapalı Spor Salonu’nda gerçekleşen Vezirköprü Kitap Günleri kapsamında, 24 Eylül 2025 tarihinde 09.30–16.00 saatleri arasında okurlarımla buluşuyorum. Etkinlik alanında Vezirköprü Belediyesi Standı’nda imza ve sohbet için sizleri davet ediyorum.
+                </p>
+                
+              </div>
+            </article>
+
+            <article class="news-card" data-category="Fuar">
+              <div class="news-card-image">
+                <img src="public/13.jpeg" alt="Uluslararası Kocaeli Kitap Fuarı" />
+              </div>
+              <div class="news-card-content">
+                <div class="news-meta">
+                  <span class="news-date"
+                    ><i class="far fa-calendar"></i> 4–12 Ekim 2025</span
+                  >
+                  <span class="news-category">Kitap Fuarı</span>
+                </div>
+                <h3 class="news-title">Uluslararası Kocaeli Kitap Fuarı’nda Örger Yayınları Standındayım</h3>
+                <p class="news-excerpt">
+                  4–12 Ekim 2025 tarihleri arasında Kocaeli Kongre Merkezi’nde düzenlenecek Uluslararası Kocaeli Kitap Fuarı’nda fuar boyunca okurlarımla buluşuyorum. Örger Yayınları – B133 numaralı stantta kitaplarımı inceleyebilir, imza alabilir ve kısa bir sohbet gerçekleştirebilirsiniz. Tüm kitapseverleri standımıza beklerim.
+                </p>
+                
+              </div>
+            </article>
+          </div>
+
+          <div class="news-pagination">
+            <a href="#" class="pagination-btn"
+              ><i class="fas fa-chevron-left"></i> Önceki</a
+            >
+            <div class="pagination-numbers">
+              <span class="pagination-number active">1</span>
+              <span class="pagination-number">2</span>
+              <span class="pagination-number">3</span>
+            </div>
+            <a href="#" class="pagination-btn"
+              >Sonraki <i class="fas fa-chevron-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Kadir Veral</h3>
+            <p>
+              Hikâyelerinde insanın iç dünyasını ve hayal gücünün sınırlarını
+              araştıran bir yazar.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Sayfalar</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="books.html">Kitaplar</a></li>
+              <li><a href="gundem-arsivi.html">Köşe Yazılarım</a></li>
+              <li><a href="haberler.html">Haberler</a></li>
+              <li><a href="form.html">İletişim</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kitaplar</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="book-detail.html"
+                  >Zaman Makinesinde Geçmişe Yolculuk</a
+                >
+              </li>
+              <li><a href="book-detail.html">Yıldızlardan Gelen Misafir</a></li>
+              <li><a href="book-detail.html">Kiraz Sofrası</a></li>
+              <li><a href="book-detail.html">Amazonların Sırrı</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>İletişim</h4>
+            <p>
+              Görüş, öneri ve iş birliği için iletişim formunu
+              kullanabilirsiniz.
+            </p>
+            <a href="form.html" class="btn small">İletişime Geç</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Kadir Veral. Tüm hakları saklıdır.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const nav = document.querySelector(".nav");
+      mobileToggle.addEventListener("click", () => {
+        mobileToggle.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 50) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+
+      // News chips filter
+      const chips = document.querySelectorAll(".news-chip");
+      const cards = document.querySelectorAll(".news-card");
+      chips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          chips.forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          const filter = chip.getAttribute("data-filter");
+          cards.forEach((card) => {
+            const cat = card.getAttribute("data-category") || "";
+            if (!filter || filter === "*" || cat === filter) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

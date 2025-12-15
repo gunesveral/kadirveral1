@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kadir Veral'in fotoğraf galerisi - etkinlikler, imza günleri ve özel anlar. Kitap fuarları, okur buluşmaları ve edebiyat etkinlikleri."
+    />
+    <meta
+      name="keywords"
+      content="Kadir Veral galeri, yazar fotoğrafları, imza günleri, kitap fuarları, edebiyat etkinlikleri"
+    />
+    <meta name="author" content="Kadir Veral" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.kadirveral.com/galeri.html" />
+    <meta property="og:title" content="Galeri - Kadir Veral" />
+    <meta
+      property="og:description"
+      content="Kadir Veral'in fotoğraf galerisi - etkinlikler, imza günleri ve özel anlar."
+    />
+    <meta
+      property="og:image"
+      content="https://www.kadirveral.com/public/1.webp"
+    />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.kadirveral.com/galeri.html" />
+    <meta name="twitter:title" content="Galeri - Kadir Veral" />
+    <meta
+      name="twitter:description"
+      content="Kadir Veral'in fotoğraf galerisi - etkinlikler, imza günleri ve özel anlar."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.kadirveral.com/public/1.webp"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.kadirveral.com/galeri.html" />
+
+    <title>Galeri - Kadir Veral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <span class="logo-text">KADİR VERAL</span>
+          <span class="logo-line"></span>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">ANA SAYFA</a></li>
+            <li><a href="books.html" class="nav-link">KİTAPLAR</a></li>
+            <li><a href="gundem-arsivi.html" class="nav-link">KÖŞE YAZILARIM</a></li>
+            <li><a href="haberler.html" class="nav-link">HABERLER</a></li>
+            <li><a href="form.html" class="nav-link">İLETİŞİM</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+          <a href="form.html" class="social-link"
+            ><i class="far fa-envelope"></i
+          ></a>
+        </div>
+
+        <button class="mobile-toggle" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="breadcrumb">
+        <div class="container">
+          <a href="index.html">Ana sayfa</a>
+          <span>/</span>
+          <span>Galeri</span>
+        </div>
+      </section>
+
+      <section class="gallery-section">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-header-line"></div>
+            <span class="section-subtitle">Anılar</span>
+            <h2 class="section-title">Fotoğraf Galerisi</h2>
+            <p class="section-desc">Etkinlikler, imza günleri ve özel anlar</p>
+          </div>
+
+          <div class="gallery-filters">
+            <button class="gallery-filter active" data-filter="all">
+              Tümü
+            </button>
+            <button class="gallery-filter" data-filter="events">
+              Etkinlikler
+            </button>
+            <button class="gallery-filter" data-filter="signings">
+              İmza Günleri
+            </button>
+            <button class="gallery-filter" data-filter="workshops">
+              Atölyeler
+            </button>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-item" data-category="events">
+              <div class="gallery-item-inner">
+                <img src="public/1.webp" alt="Kitap Fuarı" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Kitap Fuarı 2024</h3>
+                    <p>Okurlarla buluşma</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="signings">
+              <div class="gallery-item-inner">
+                <img src="public/2.webp" alt="İmza Günü" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>İmza Günü</h3>
+                    <p>Okurlarla özel anlar</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="workshops">
+              <div class="gallery-item-inner">
+                <img src="public/3.webp" alt="Yazarlık Atölyesi" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Yazarlık Atölyesi</h3>
+                    <p>Genç yazarlarla çalışma</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+              <div class="gallery-item-inner">
+                <img src="public/4.webp" alt="Söyleşi" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Edebiyat Söyleşisi</h3>
+                    <p>Okurlarla söyleşi</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="signings">
+              <div class="gallery-item-inner">
+                <img src="public/5.webp" alt="Kadir Veral" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Özel An</h3>
+                    <p>Çalışma masasında</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+              <div class="gallery-item-inner">
+                <img src="public/1.webp" alt="Kitap Lansmanı" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Kitap Lansmanı</h3>
+                    <p>Yeni kitap tanıtımı</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="workshops">
+              <div class="gallery-item-inner">
+                <img src="public/2.webp" alt="Atölye Çalışması" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Yaratıcı Yazarlık</h3>
+                    <p>Atölye çalışması</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="signings">
+              <div class="gallery-item-inner">
+                <img src="public/3.webp" alt="Okur Buluşması" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Okur Buluşması</h3>
+                    <p>Özel etkinlik</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+              <div class="gallery-item-inner">
+                <img src="public/4.webp" alt="Edebiyat Festivali" />
+                <div class="gallery-overlay">
+                  <div class="gallery-info">
+                    <h3>Edebiyat Festivali</h3>
+                    <p>Festival katılımı</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Kadir Veral</h3>
+            <p>
+              Hikâyelerinde insanın iç dünyasını ve hayal gücünün sınırlarını
+              araştıran bir yazar.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fab fa-x-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Sayfalar</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="books.html">Kitaplar</a></li>
+              <li><a href="gundem-arsivi.html">Köşe Yazılarım</a></li>
+              <li><a href="haberler.html">Haberler</a></li>
+              <li><a href="form.html">İletişim</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kitaplar</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="book-detail.html"
+                  >Zaman Makinesinde Geçmişe Yolculuk</a
+                >
+              </li>
+              <li><a href="book-detail.html">Yıldızlardan Gelen Misafir</a></li>
+              <li><a href="book-detail.html">Kiraz Sofrası</a></li>
+              <li><a href="book-detail.html">Amazonların Sırrı</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>İletişim</h4>
+            <p>
+              Görüş, öneri ve iş birliği için iletişim formunu
+              kullanabilirsiniz.
+            </p>
+            <a href="form.html" class="btn small">İletişime Geç</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Kadir Veral. Tüm hakları saklıdır.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const nav = document.querySelector(".nav");
+      mobileToggle.addEventListener("click", () => {
+        mobileToggle.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 50) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+
+      // Gallery filter functionality
+      const filters = document.querySelectorAll(".gallery-filter");
+      const items = document.querySelectorAll(".gallery-item");
+
+      filters.forEach((filter) => {
+        filter.addEventListener("click", () => {
+          filters.forEach((f) => f.classList.remove("active"));
+          filter.classList.add("active");
+
+          const category = filter.dataset.filter;
+
+          items.forEach((item) => {
+            if (category === "all" || item.dataset.category === category) {
+              item.style.display = "block";
+              setTimeout(() => {
+                item.style.opacity = "1";
+                item.style.transform = "scale(1)";
+              }, 10);
+            } else {
+              item.style.opacity = "0";
+              item.style.transform = "scale(0.8)";
+              setTimeout(() => {
+                item.style.display = "none";
+              }, 300);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+

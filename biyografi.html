@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kadir Veral’in hayatı, edebi yolculuğu, romanları ve çocuk edebiyatı çalışmaları."
+    />
+    <meta
+      name="keywords"
+      content="Kadir Veral biyografi, Türk yazar hayatı, edebiyat yazarı, bilim kurgu yazarı"
+    />
+    <meta name="author" content="Kadir Veral" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta
+      property="og:url"
+      content="https://www.kadirveral.com/biyografi.html"
+    />
+    <meta property="og:title" content="Biyografi - Kadir Veral" />
+    <meta
+      property="og:description"
+      content="Kadir Veral'in hayatı, edebi yolculuğu, romanları ve çocuk edebiyatı çalışmaları."
+    />
+    <meta
+      property="og:image"
+      content="https://www.kadirveral.com/public/1.webp"
+    />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://www.kadirveral.com/biyografi.html"
+    />
+    <meta name="twitter:title" content="Biyografi - Kadir Veral" />
+    <meta
+      name="twitter:description"
+      content="Kadir Veral'in hayatı, edebi yolculuğu, romanları ve çocuk edebiyatı çalışmaları."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.kadirveral.com/public/1.webp"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.kadirveral.com/biyografi.html" />
+
+    <title>Biyografi - Kadir Veral</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Biography page scoped styling */
+      .biography-page {
+        --accent: #b83a3a;
+        --ink: #0b1c3e;
+        --muted: rgba(0,0,0,0.6);
+      }
+      .biography-page .biography-section { padding: 60px 0 80px; }
+      .biography-page .bio-header { margin-bottom: 20px; }
+      .biography-page .bio-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 700;
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        letter-spacing: .01em;
+      }
+      .biography-page .bio-tagline {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+        color: var(--accent);
+        margin-top: 6px;
+      }
+      .biography-page .bio-grid {
+        display: grid;
+        grid-template-columns: 420px 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      .biography-page .photo-frame {
+        background: #fff;
+        border-radius: 18px;
+        padding: 16px;
+        box-shadow: 0 18px 48px rgba(11,28,62,.12), 0 0 0 1px rgba(0,0,0,.05) inset;
+      }
+      .biography-page .photo-frame img { width: 100%; display: block; border-radius: 10px; }
+      .biography-page .section-title {
+        font-family: 'Cormorant Garamond', serif;
+        letter-spacing: .02em;
+        text-transform: none;
+        color: var(--ink);
+        position: relative;
+        font-weight: 600;
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        margin-bottom: 12px;
+        display: inline-block;
+      }
+      .biography-page .section-title::after{
+        content: '';
+        display: block;
+        height: 2px;
+        width: 100%;
+        margin-top: 6px;
+        border-radius: 999px;
+        background: linear-gradient(90deg,
+          rgba(184,58,58,0),
+          rgba(184,58,58,0.95) 10%,
+          rgba(184,58,58,0.95) 90%,
+          rgba(184,58,58,0));
+        box-shadow: 0 4px 12px rgba(184,58,58,0.22);
+      }
+      /* Only for the 'Hakkında.' title: hide decorative red underline */
+      .biography-page .section-title.no-underline::after { display: none; }
+      .biography-page .bio-content p { color: var(--muted); line-height: 1.9; }
+      /* Timeline */
+      .biography-page .timeline { margin: 34px 0; padding-left: 0; list-style: none; position: relative; }
+      .biography-page .timeline::before { content:''; position:absolute; left:10px; top:0; bottom:0; width:2px; background: rgba(0,0,0,.08); }
+      .biography-page .timeline-item { position: relative; padding-left: 36px; margin: 14px 0; }
+      .biography-page .timeline-item::before { content:''; position:absolute; left:3px; top:.55em; width:14px; height:14px; background: #fff; border:2px solid var(--accent); border-radius:50%; box-shadow: 0 0 0 3px rgba(184,58,58,.12); }
+      .biography-page .timeline-year { font-weight: 600; color: var(--ink); margin-right: 8px; }
+      .biography-page .timeline-text { color: var(--muted); }
+      /* Highlights */
+      .biography-page .highlights { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .biography-page .highlight {
+        background: #fff;
+        border-radius: 14px;
+        padding: 16px 18px;
+        border: 1px solid rgba(0,0,0,.06);
+        box-shadow: 0 10px 30px rgba(11,28,62,.10);
+      }
+      .biography-page .highlight-title { font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: .02em; }
+      .biography-page .highlight-text { color: var(--muted); font-size: .95rem; }
+      @media (max-width: 1024px){ .biography-page .bio-grid { grid-template-columns: 1fr; } }
+      @media (max-width: 700px){ .biography-page .highlights { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+
+  <body class="biography-page">
+    <!-- HEADER (DEĞİŞMEDİ) -->
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <span class="logo-text">KADİR VERAL</span>
+          <span class="logo-line"></span>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">ANA SAYFA</a></li>
+            <li><a href="books.html" class="nav-link">KİTAPLAR</a></li>
+            <li><a href="gundem-arsivi.html" class="nav-link">KÖŞE YAZILARIM</a></li>
+            <li><a href="haberler.html" class="nav-link">HABERLER</a></li>
+            <li><a href="form.html" class="nav-link">İLETİŞİM</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-links">
+          <a
+            href="https://www.facebook.com/kadir.veral.5/?locale=tr_TR"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/kadir.veral?igsh=cHk4bTlxdDNnaWF0"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://x.com/kadirveral8?s=11"
+            target="_blank"
+            rel="noopener"
+            class="social-link"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a href="form.html" class="social-link"
+            ><i class="fa-regular fa-envelope"></i
+          ></a>
+        </div>
+
+        <button class="mobile-toggle" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="page">
+      <section class="biography-section">
+        <div class="container">
+          <div class="bio-header">
+            <div>
+              <h1 class="bio-title">Biyografi.</h1>
+              <div class="bio-tagline">Yazarlık, kamu sorumluluğu ve toplumsal etki ekseninde bir yolculuk.</div>
+            </div>
+          </div>
+
+          <div class="bio-grid">
+            <div class="bio-photo">
+              <div class="photo-frame">
+                <img src="public/1.webp" alt="Kadir Veral" />
+              </div>
+            </div>
+
+            <div class="bio-content">
+              <h3 class="section-title no-underline">Hakkında.</h3>
+              <p>
+                Kadir Veral, sosyal bilimler temelli akademik altyapısını uzun
+                yıllara dayanan kamu hizmeti, sivil toplum çalışmaları ve edebi
+                üretimle birleştiren bir yazar ve iletişim profesyonelidir.
+                Eğitimini Sosyal Bilimler ve Davranış Bilimleri Yüksekokulu
+                bünyesinde, Halkla İlişkiler ve Reklamcılık alanında
+                tamamlamıştır. Bu disiplinlerarası formasyon, onun hem toplumu
+                okuma biçimini hem de yazınsal yaklaşımını belirleyen temel
+                unsurlardan biri olmuştur.
+              </p>
+              <p>
+                1987–2017 yılları arasında Vezirköprü Kaymakamlığı’na bağlı
+                Sosyal Yardımlaşma ve Dayanışma Vakıf Müdürlüğü bünyesinde görev
+                almış; otuz yılı aşkın süre boyunca kamu hizmetinde aktif
+                sorumluluk üstlenmiştir. Bu süreçte toplum temelli sosyal yardım
+                projeleri, kaynak yönetimi, dezavantajlı gruplara yönelik destek
+                mekanizmaları ve kriz dönemlerinde yerel ihtiyaçlara hızlı ve
+                sürdürülebilir çözümler üretilmesi alanlarında önemli
+                çalışmalara katkı sağlamıştır. Görev süresi boyunca sergilediği
+                hizmet anlayışı ve kurumsal katkıları nedeniyle Vezirköprü
+                Kaymakamları tarafından 4 Takdirname ve 1 Teşekkür Belgesi ile
+                ödüllendirilmiştir. Sivil toplum ve gönüllülük faaliyetleri,
+                yaşamının önemli bir parçasını oluşturmaktadır. LÖSEV gönüllüsü
+                olarak sosyal sorumluluk projelerinde yer almış; çeşitli dernek
+                ve platformlarda yönetim kurulu üyeliği ve başkan yardımcılığı
+                görevleri üstlenmiştir. Aynı zamanda Türkiye Yazarlar Sendikası
+                ve Samsun Gazeteciler Cemiyeti üyesidir. Medya alanında ise
+                GündemArşivi.com’da aktif makale yazarlığı yapmış, Vezirköprü
+                Özlem Gazetesi’nde uzun süre köşe yazıları kaleme almıştır.
+              </p>
+              <p>
+                Edebiyat alanındaki üretimleriyle geniş bir okur kitlesine
+                ulaşan Kadir Veral’in yayımlanmış romanları arasında İris (İzan
+                Yayıncılık) ve 3 Kadın, 2 Aşk, 1 Adam (Pelikan Yayıncılık) yer
+                almaktadır. Bunun yanı sıra çocuk edebiyatına yönelik olarak
+                Kiraz Sofrası, Yıldızlardan Gelen Misafir ve Zaman Makinesinde
+                Geçmişe Yolculuk adlı eserleri bulunmaktadır. Özellikle 9–14 yaş
+                grubuna hitap eden bu kitaplar, eğitici ve hayal gücünü besleyen
+                anlatımıyla öne çıkmaktadır.
+              </p>
+
+              <ul class="timeline" aria-label="Kısa zaman çizelgesi">
+                <li class="timeline-item"><span class="timeline-year">2024</span><span class="timeline-text">GündemArşivi.com’da düzenli makale yazarlığı.</span></li>
+                <li class="timeline-item"><span class="timeline-year">2017</span><span class="timeline-text">Kamu hizmetindeki 30+ yılın ardından edebi üretimine daha fazla odaklanmaya başladı.</span></li>
+                <li class="timeline-item"><span class="timeline-year">2010–2016</span><span class="timeline-text">STK çalışmaları ve yerel basında köşe yazıları.</span></li>
+                <li class="timeline-item"><span class="timeline-year">Öncesi</span><span class="timeline-text">Sosyal bilimler altyapısı ve iletişim odaklı formasyon.</span></li>
+              </ul>
+
+              <div class="highlights">
+                <div class="highlight">
+                  <div class="highlight-title">Edebi Üretim</div>
+                  <div class="highlight-text">Roman ve çocuk kitaplarıyla farklı yaş gruplarına ulaşan metinler.</div>
+                </div>
+                <div class="highlight">
+                  <div class="highlight-title">Toplumsal Etki</div>
+                  <div class="highlight-text">Kamu hizmeti ve sivil toplum deneyimiyle sahici bir perspektif.</div>
+                </div>
+                <div class="highlight">
+                  <div class="highlight-title">Yayın & Basın</div>
+                  <div class="highlight-text">Düzenli köşe yazıları, söyleşiler ve medya görünürlüğü.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Kadir Veral</h3>
+            <p>
+              Hikâyelerinde insanın iç dünyasını ve hayal gücünün sınırlarını
+              araştıran bir yazar.
+            </p>
+            <div class="footer-social">
+              <a
+                href="https://www.facebook.com/kadir.veral.5/?locale=tr_TR"
+                target="_blank"
+                rel="noopener"
+                class="footer-social-link"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/kadir.veral?igsh=cHk4bTlxdDNnaWF0"
+                target="_blank"
+                rel="noopener"
+                class="footer-social-link"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://x.com/kadirveral8?s=11"
+                target="_blank"
+                rel="noopener"
+                class="footer-social-link"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Sayfalar</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="books.html">Kitaplar</a></li>
+              <li><a href="gundem-arsivi.html">Köşe Yazılarım</a></li>
+              <li><a href="haberler.html">Haberler</a></li>
+              <li><a href="form.html">İletişim</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kitaplar</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="book-detail.html?book=kiraz-sofrasi">Kiraz Sofrası</a>
+              </li>
+              <li>
+                <a href="book-detail.html?book=yildizlardan-gelen-misafir"
+                  >Yıldızlardan Gelen Misafir</a
+                >
+              </li>
+              <li>
+                <a
+                  href="book-detail.html?book=zaman-makinesinde-gecmise-yolculuk"
+                  >Zaman Makinesinde Geçmişe Yolculuk</a
+                >
+              </li>
+              <li>
+                <a href="book-detail.html?book=amazonlarin-sirri"
+                  >Amazonların Sırrı</a
+                >
+              </li>
+              <li><a href="book-detail.html?book=iris">İris</a></li>
+              <li>
+                <a href="book-detail.html?book=3-kadin-2-ask-1-adam"
+                  >3 Kadın 2 Aşk 1 Adam</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>İletişim</h4>
+            <p>
+              Görüş, öneri ve iş birliği için iletişim formunu
+              kullanabilirsiniz.
+            </p>
+            <a href="form.html" class="btn small">İletişime Geç</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Kadir Veral. Tüm hakları saklıdır.</p>
+          <p class="footer-credit">Yazılım: Güneş Veral</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const nav = document.querySelector(".nav");
+      mobileToggle.addEventListener("click", () => {
+        mobileToggle.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

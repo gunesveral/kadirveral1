@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kadir Veral’in hayatı, edebi yolculuğu, romanları ve çocuk edebiyatı çalışmaları."
+    />
+    <meta
+      name="keywords"
+      content="Kadir Veral biyografi, Türk yazar hayatı, edebiyat yazarı, bilim kurgu yazarı"
+    />
+    <meta name="author" content="Kadir Veral" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile" />
+    <meta
+      property="og:url"
+      content="https://www.kadirveral.com/biyografi.html"
+    />
+    <meta property="og:title" content="Biyografi - Kadir Veral" />
+    <meta
+      property="og:description"
+      content="Kadir Veral'in hayatı, edebi yolculuğu, romanları ve çocuk edebiyatı çalışmaları."
+    />
+    <meta
+      property="og:image"
+      content="https://www.kadirveral.com/public/1.webp"
+    />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://www.kadirveral.com/biyografi.html"
+    />
+    <meta name="twitter:title" content="Biyografi - Kadir Veral" />
+    <meta
+      name="twitter:description"
+      content="Kadir Veral'in hayatı, edebi yolculuğu, romanları ve çocuk edebiyatı çalışmaları."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.kadirveral.com/public/1.webp"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.kadirveral.com/biyografi.html" />
+
+    <title>Biyografi - Kadir Veral</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER (DEĞİŞMEDİ) -->
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <span class="logo-text">KADİR VERAL</span>
+          <span class="logo-line"></span>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">ANA SAYFA</a></li>
+            <li><a href="books.html" class="nav-link">KİTAPLAR</a></li>
+            <li>
+              <a href="gundem-arsivi.html" class="nav-link">GÜNDEM ARŞİVİ</a>
+            </li>
+            <li><a href="haberler.html" class="nav-link">HABERLER</a></li>
+            <li><a href="form.html" class="nav-link">İLETİŞİM</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+          <a href="form.html" class="social-link"
+            ><i class="far fa-envelope"></i
+          ></a>
+        </div>
+
+        <button class="mobile-toggle" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="page">
+      <section class="breadcrumb">
+        <div class="container">
+          <a href="index.html">Ana Sayfa</a>
+          <span>/</span>
+          <span>Biyografi</span>
+        </div>
+      </section>
+
+      <section class="biography-section">
+        <div class="container">
+          <!-- HERO -->
+          <div class="biography-hero">
+            <div class="biography-image">
+              <img src="public/2.webp" alt="Kadir Veral" />
+            </div>
+
+            <div class="biography-intro">
+              <h1 class="biography-title">Kadir Veral</h1>
+              <p class="biography-subtitle">
+                Romancı · Çocuk Kitapları Yazarı · Eğitim Buluşmaları
+              </p>
+            </div>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="biography-content">
+            <div class="biography-main">
+              <h2 class="section-title-sm">Hakkında</h2>
+              <div class="biography-text">
+                <p>
+                  Kadir Veral, edebiyatında insanı merkeze alan; kimlik,
+                  toplumsal hafıza ve ötekilik temalarını derinlikli bir
+                  anlatımla ele alan bir yazardır. Romanlarında bireyin toplumla
+                  kurduğu ilişkiyi sade ve doğrudan bir dil ile işler.
+                </p>
+                <p>
+                  Yetişkin edebiyatının yanı sıra çocuklara yönelik eserler de
+                  kaleme alan Veral, çocuk edebiyatını hayal gücünü besleyen ve
+                  empatiyi güçlendiren önemli bir alan olarak görür. Okul
+                  buluşmaları ve söyleşilerle farklı yaş gruplarıyla doğrudan
+                  temas kurar.
+                </p>
+              </div>
+
+              <div class="biography-text biography-quote">
+                <p>
+                  “İnsanın dini, milleti, rengi ya da cinsiyeti olmaz. İnsan,
+                  insandır.”
+                </p>
+                <p>
+                  “Farklılıklar tahammül edilmek için değil; sevilmek için
+                  vardır. Hepimizin ihtiyacı olan tek şey, biraz daha sevmek ve
+                  sevilmektir. Öylesine, sade ve insanca…”
+                </p>
+              </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside class="biography-sidebar">
+              <div class="sidebar-card">
+                <h3>İletişim</h3>
+                <p>
+                  Okul buluşmaları, söyleşiler ve iş birlikleri için iletişime
+                  geçebilirsiniz.
+                </p>
+                <a href="form.html" class="btn primary">İletişime Geç</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Kadir Veral</h3>
+            <p>
+              Hikâyelerinde insanın iç dünyasını ve hayal gücünün sınırlarını
+              araştıran bir yazar.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fab fa-x-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Sayfalar</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="books.html">Kitaplar</a></li>
+              <li><a href="gundem-arsivi.html">Gündem Arşivi</a></li>
+              <li><a href="haberler.html">Haberler</a></li>
+              <li><a href="form.html">İletişim</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kitaplar</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="book-detail.html">Kiraz Sofrası</a>
+              </li>
+              <li><a href="book-detail.html">Yıldızlardan Gelen Misafir</a></li>
+              <li>
+                <a href="book-detail.html">Zaman Makinesinde Geçmişe Yolculuk</a>
+              </li>
+              <li><a href="book-detail.html">Amazonların Sırrı</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>İletişim</h4>
+            <p>
+              Görüş, öneri ve iş birliği için iletişim formunu
+              kullanabilirsiniz.
+            </p>
+            <a href="form.html" class="btn small">İletişime Geç</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Kadir Veral. Tüm hakları saklıdır.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const nav = document.querySelector(".nav");
+      mobileToggle.addEventListener("click", () => {
+        mobileToggle.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

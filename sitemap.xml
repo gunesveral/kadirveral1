@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Ana Sayfa -->
+  <url>
+    <loc>https://www.kadirveral.com/</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Biyografi -->
+  <url>
+    <loc>https://www.kadirveral.com/biyografi.html</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Kitaplar -->
+  <url>
+    <loc>https://www.kadirveral.com/index.html#kitaplar</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Kitap Detayları -->
+  <url>
+    <loc>https://www.kadirveral.com/book-detail.html</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Haberler -->
+  <url>
+    <loc>https://www.kadirveral.com/haberler.html</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Galeri -->
+  <url>
+    <loc>https://www.kadirveral.com/galeri.html</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- İletişim -->
+  <url>
+    <loc>https://www.kadirveral.com/form.html</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Gündem Arşivi -->
+  <url>
+    <loc>https://www.kadirveral.com/gundem-arsivi.html</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Okur Buluşmaları -->
+  <url>
+    <loc>https://www.kadirveral.com/okur-bulusmalari.html</loc>
+    <lastmod>2024-12-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
+
+
+
+
+
+
+
+
+
+
+

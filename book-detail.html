@@ -1,0 +1,900 @@
+    <style>
+      /* Page-scoped tweaks for Bestsellers area */
+      .related-books-section.bestsellers { position: relative; }
+      .related-books-section.bestsellers .bestsellers-band { position: relative; z-index: 1; }
+      .related-books-section.bestsellers .bestsellers-title{
+        color:#0b1c3e;
+        letter-spacing:.08em;
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+      }
+      .related-books-section.bestsellers .bestsellers-title::after{
+        content:''; display:block; height:3px; width:120px; margin:10px auto 0;
+        border-radius:999px;
+        background: linear-gradient(90deg, rgba(184,58,58,0), rgba(184,58,58,.95) 20%, rgba(184,58,58,.95) 80%, rgba(184,58,58,0));
+      }
+      .related-books-section.bestsellers .related-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        max-width: 1200px;
+        margin: -130px auto 0; /* pull cards up to overlap band by ~half */
+        justify-items: center;
+        position: relative; z-index: 2;
+      }
+      @media (max-width: 1400px) {
+        .related-books-section.bestsellers .related-grid {
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          margin-top: -120px;
+        }
+      }
+      @media (max-width: 992px) {
+        .related-books-section.bestsellers .related-grid { margin-top: -110px; }
+      }
+      @media (max-width: 768px) {
+        .related-books-section.bestsellers .related-grid { margin-top: -90px; }
+      }
+
+      /* Hover overlay: İncele */
+      .related-books-section.bestsellers .b-card { position: relative; overflow: hidden; }
+      .related-books-section.bestsellers .b-card::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: rgba(11,28,62,0.35);
+        opacity: 0; transition: opacity .25s ease;
+        z-index: 1;
+      }
+      .related-books-section.bestsellers .b-card::after {
+        content: 'İncele';
+        position: absolute; left: 50%; top: 50%; transform: translate(-50%, calc(-50% + 8px));
+        padding: 10px 18px; border-radius: 999px;
+        background: #b83a3a; color: #fff; font-weight: 600; letter-spacing: .04em;
+        box-shadow: 0 8px 20px rgba(184,58,58,0.35);
+        opacity: 0; transition: opacity .25s ease, transform .25s ease;
+        z-index: 2;
+      }
+      .related-books-section.bestsellers .b-card:hover::before,
+      .related-books-section.bestsellers .b-card:focus-visible::before { opacity: 1; }
+      .related-books-section.bestsellers .b-card:hover::after,
+      .related-books-section.bestsellers .b-card:focus-visible::after { opacity: 1; transform: translate(-50%, -50%); }
+      .related-books-section.bestsellers .b-card:focus { outline: none; }
+      /* Video section styling */
+      .detail-video-section { margin-top: 28px; }
+      .detail-video-title { font-family: var(--font-display); font-size: 1.25rem; color: #0b1c3e; margin-bottom: 8px; letter-spacing: .02em; }
+      /* Küçük kare çerçeve */
+      .detail-video-frame {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        background: transparent;
+        border: 1px solid rgba(10, 24, 52, 0.14);
+        box-shadow: 0 6px 18px rgba(10,24,52,0.10);
+        width: 320px;
+        height: 320px;
+        margin: 0; /* başlığın hemen altında, sola hizalı */
+      }
+      .detail-video {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover; /* doldur, kırpabilir */
+      }
+      @media (max-width: 720px){
+        .detail-video-frame { width: 220px; height: 220px; }
+        .detail-video { height: 100%; }
+      }
+    </style>
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kitap detay sayfası - Kadir Veral'in eserleri hakkında detaylı bilgiler, özet ve sipariş bilgileri."
+    />
+    <meta
+      name="keywords"
+      content="Kadir Veral kitapları, kitap detay, kitap siparişi, Türk edebiyatı"
+    />
+    <meta name="author" content="Kadir Veral" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="book" />
+    <meta
+      property="og:url"
+      content="https://www.kadirveral.com/book-detail.html"
+    />
+    <meta property="og:title" content="Kitap Detayı - Kadir Veral" />
+    <meta
+      property="og:description"
+      content="Kadir Veral'in eserleri hakkında detaylı bilgiler, özet ve sipariş bilgileri."
+    />
+    <meta
+      property="og:image"
+      content="https://www.kadirveral.com/public/2.webp"
+    />
+    <meta property="og:locale" content="tr_TR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://www.kadirveral.com/book-detail.html"
+    />
+    <meta name="twitter:title" content="Kitap Detayı - Kadir Veral" />
+    <meta
+      name="twitter:description"
+      content="Kadir Veral'in eserleri hakkında detaylı bilgiler."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.kadirveral.com/public/2.webp"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.kadirveral.com/book-detail.html" />
+
+    <title>Kitap Detayı - Kadir Veral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .btn.whatsapp {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: #fff;
+        border: none;
+        box-shadow: 0 8px 24px rgba(18, 140, 126, 0.22);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .btn.whatsapp:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(18, 140, 126, 0.3);
+      }
+      .btn.whatsapp i {
+        opacity: 0.95;
+      }
+
+      /* Related cards: equalize button alignment and add subtle glow */
+      .related-carousel {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 16px;
+      }
+      .related-book-card {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border: 1px solid rgba(10, 24, 52, 0.12);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(10, 24, 52, 0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        min-width: 260px;
+      }
+      .related-book-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 36px rgba(10, 24, 52, 0.14);
+        border-color: rgba(201, 74, 74, 0.22);
+      }
+
+      .book-card-cover {
+        position: relative;
+        aspect-ratio: 3/4;
+        overflow: hidden;
+        background: #fff;
+      }
+      .book-card-cover::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        box-shadow: inset 0 0 0 1px rgba(10, 24, 52, 0.08),
+          inset 0 0 28px rgba(255, 255, 255, 0.6);
+        pointer-events: none;
+      }
+      .book-card-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.35s ease, filter 0.3s ease;
+        filter: saturate(1.06) contrast(1.05) brightness(1.02);
+      }
+      .related-book-card:hover .book-card-cover img {
+        transform: scale(1.04);
+        filter: saturate(1.1) contrast(1.08) brightness(1.03);
+      }
+
+      .book-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 14px;
+      }
+      .book-card-title {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        color: var(--color-text-dark);
+      }
+      .book-card-btn {
+        align-self: flex-start;
+        margin-top: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <span class="logo-text">KADİR VERAL</span>
+          <span class="logo-line"></span>
+        </a>
+
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">ANA SAYFA</a></li>
+            <li><a href="books.html" class="nav-link">KİTAPLAR</a></li>
+            <li><a href="gundem-arsivi.html" class="nav-link">KÖŞE YAZILARIM</a></li>
+            <li><a href="haberler.html" class="nav-link">HABERLER</a></li>
+            <li><a href="form.html" class="nav-link">İLETİŞİM</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-links">
+          <a href="https://facebook.com/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="form.html" class="social-link"
+            ><i class="fa-regular fa-envelope"></i
+          ></a>
+        </div>
+
+        <button class="mobile-toggle" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="breadcrumb">
+        <div class="container">
+          <a href="index.html">Ana sayfa</a>
+          <span>/</span>
+          <a href="index.html#kitaplar">Kitap</a>
+          <span>/</span>
+          <a href="#">Çocuk ve Gençlik</a>
+          <span>/</span>
+          <a href="#">Gençlik 10+ Yaş</a>
+          <span>/</span>
+          <a href="#">Roman/Öykü</a>
+          <span>/</span>
+          <span>Kiraz Sofrası</span>
+        </div>
+      </section>
+
+      <section class="book-detail container">
+        <div class="detail-hero">
+          <div class="detail-cover-wrapper">
+            <div class="detail-cover" id="bookCover3D">
+              <div class="book-3d-container">
+                <img id="bookCoverImage" src="" alt="" class="book-3d-image" />
+                <div class="book-3d-shadow"></div>
+              </div>
+            </div>
+          </div>
+          <div class="detail-info">
+            <h1 class="detail-title" id="bookTitle">Yükleniyor...</h1>
+            <div class="detail-meta" id="bookMeta"></div>
+            <div class="detail-rating" id="bookRating"></div>
+            <p class="detail-desc" id="bookDescription"></p>
+          </div>
+        </div>
+        <!-- Book video section (populated by JS per book) -->
+        <section class="detail-video-section" id="detailVideoSection">
+          <div class="detail-video-title">Tanıtım Videosu</div>
+          <div class="detail-video-frame">
+            <video id="detailVideo" class="detail-video" controls preload="metadata"></video>
+          </div>
+        </section>
+      </section>
+
+      <div class="related-books-section bestsellers">
+        <div class="bestsellers-header">
+          
+          <h2 class="bestsellers-title">ÇOK SATANLAR</h2>
+        </div>
+        <div class="bestsellers-band"></div>
+        <div class="related-grid" id="relatedCarousel"></div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h3>Kadir Veral</h3>
+            <p>
+              Hikâyelerinde insanın iç dünyasını ve hayal gücünün sınırlarını
+              araştıran bir yazar.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="footer-social-link"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Sayfalar</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Ana Sayfa</a></li>
+              <li><a href="books.html">Kitaplar</a></li>
+              <li><a href="gundem-arsivi.html">Köşe Yazılarım</a></li>
+              <li><a href="haberler.html">Haberler</a></li>
+              <li><a href="form.html">İletişim</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kitaplar</h4>
+            <ul class="footer-links">
+              <li><a href="book-detail.html?book=kiraz-sofrasi">Kiraz Sofrası</a></li>
+              <li><a href="book-detail.html?book=yildizlardan-gelen-misafir">Yıldızlardan Gelen Misafir</a></li>
+              <li><a href="book-detail.html?book=zaman-makinesinde-gecmise-yolculuk">Zaman Makinesinde Geçmişe Yolculuk</a></li>
+              <li><a href="book-detail.html?book=amazonlarin-sirri">Amazonların Sırrı</a></li>
+              <li><a href="book-detail.html?book=iris">İris</a></li>
+              <li><a href="book-detail.html?book=3-kadin-2-ask-1-adam">3 Kadın 2 Aşk 1 Adam</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>İletişim</h4>
+            <p>
+              Görüş, öneri ve iş birliği için iletişim formunu
+              kullanabilirsiniz.
+            </p>
+            <a href="form.html" class="btn small">İletişime Geç</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Kadir Veral. Tüm hakları saklıdır.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Book data
+      const booksData = {
+        "kiraz-sofrasi": {
+          title: "Kiraz Sofrası",
+          image: "public/3.webp",
+          category: "Öykü",
+          badges: ["Çocuk ve Gençlik", "10+ Yaş", "Roman/Öykü"],
+          price: "$20.00",
+          author: "Kadir Veral",
+          publisher: "Örger Yayınları",
+          pages: "320",
+          year: "2024",
+          rating: 4.0,
+          description: `Kiraz Sofrası, yaz tatilini dedesinin köyünde geçirmek üzere yola çıkan Demir’in, modern dünyanın karmaşasından uzak, doğayla iç içe bir yaşamla tanışmasını anlatan sıcak bir öyküdür. Köyde geçirdiği günler boyunca hayvanlarla ve köyün samimi insanlarıyla kurduğu bağlar sayesinde Demir, hayatın gerçek dengesini keşfeder; üretmenin, paylaşmanın ve birlikte yaşamanın değerini öğrenir.
+
+Herkesin bir araya gelip yemeğini paylaştığı o büyük kiraz ağacının gölgesinde kurulan sofralar, Demir için sadece bir yaz tatili değil, aynı zamanda bir kendini bulma yolculuğuna dönüşür. Kiraz Sofrası, doğayla uyum içinde yaşamanın sıcaklığını ve bir ağacın etrafında birleşen büyük bir ailenin hikâyesini, sade ve içten bir dille okuyucuya sunar.`,
+          summary: `Kiraz Sofrası, yaz tatilini dedesinin köyünde geçirmek üzere yola çıkan Demir’in, modern dünyanın karmaşasından uzak, doğayla iç içe bir yaşamla tanışmasını anlatan sıcak bir öyküdür. Köyde geçirdiği günler boyunca hayvanlarla ve köyün samimi insanlarıyla kurduğu bağlar sayesinde Demir, hayatın gerçek dengesini keşfeder; üretmenin, paylaşmanın ve birlikte yaşamanın değerini öğrenir.
+
+Herkesin bir araya gelip yemeğini paylaştığı o büyük kiraz ağacının gölgesinde kurulan sofralar, Demir için sadece bir yaz tatili değil, aynı zamanda bir kendini bulma yolculuğuna dönüşür. Kiraz Sofrası, doğayla uyum içinde yaşamanın sıcaklığını ve bir ağacın etrafında birleşen büyük bir ailenin hikâyesini, sade ve içten bir dille okuyucuya sunar.`,
+          toc: [
+            "Giriş",
+            "İlk Karşılaşma",
+            "Macera Başlıyor",
+            "Yeni Arkadaşlar",
+            "Büyük Keşif",
+            "Sonuç",
+          ],
+          quote: '"Her çocuk, kendi hikayesinin kahramanıdır."',
+        },
+        "yildizlardan-gelen-misafir": {
+          title: "Yıldızlardan Gelen Misafir",
+          image: "public/2.webp",
+          category: "Bilim Kurgu",
+          badges: ["Örger Yayınları"],
+          price: "$25.00",
+          author: "Kadir Veral",
+          publisher: "Örger Yayınları",
+          paper: "2. Hamur",
+          pages: "84",
+          size: "13,5 x 19,5",
+          year: "2025",
+          edition: "1. Basım",
+          language: "Türkçe",
+          rating: 4.5,
+          description:
+            '"Bazı misafirler yalnızca bir eve değil, bir kalbe de düşer. Ve bazen bir yıldız, sadece gökte parlamaz..." Mert ve Özgür, yaz tatilini sıradan geçirirken, Kunduz Dağı\'na düşen bir uzay gemisi ve Kaptanı Yüzbaşı Nirelia ile karşılaşırlar, yaralanmıştır, onu hem peşindekilerden korumak hem de geldiği dünyasına geri göndermek için bin bir zorlukla savaşırlar... Nirelia tam olarak insan gibi olmasa da başka bir gezegenden, başka bir kaderden gelen sessiz bir yolcudur... Onu bulduklarında sadece bir yabancıyı değil, çok daha büyük bir sırrı da ortaya çıkarırlar: Saklamaları gereken bir kristal, karanlıkta dönen ışık halkaları, peşlerinde olan devlet görevlileri... Ve zamanı daralan bir portal... O bu Dünya\'ya ait değildir. Bazen veda etmek, her zaman uzaklara gitmekten daha zordur. "Yıldızdan Gelen Misafir", bilimkurgu ile duygunun, dostlukla gizemin, iç içe geçtiği, yıldız tozlu bir hikâye... Çünkü bazen bir yolculuk, sadece birinin değil, hepimizin kalbine açılır.',
+          summary:
+            "Mert ve Özgür, yaz tatilini sıradan geçirirken, Kunduz Dağı'na düşen bir uzay gemisi ve Kaptanı Yüzbaşı Nirelia ile karşılaşırlar, yaralanmıştır; onu hem peşindekilerden korumak hem de geldiği dünyasına geri göndermek için bin bir zorlukla savaşırlar... Saklamaları gereken bir kristal, karanlıkta dönen ışık halkaları, peşlerinde olan devlet görevlileri ve zamanı daralan bir portal... Bilimkurgu ile duygunun, dostlukla gizemin iç içe geçtiği yıldız tozlu bir hikâye.",
+          toc: [
+            "Yaz Tatili",
+            "Kunduz Dağı'na Düşen Gemi",
+            "Yüzbaşı Nirelia",
+            "Yaralı Misafir",
+            "Peşindekiler",
+            "Gizemli Kristal",
+            "Işık Halkaları",
+            "Devlet Görevlileri",
+            "Zamanı Daralan Portal",
+            "Veda",
+            "Sonuç",
+          ],
+          quote:
+            '"Bazı misafirler yalnızca bir eve değil, bir kalbe de düşer. Ve bazen bir yıldız, sadece gökte parlamaz..."',
+        },
+        "zaman-makinesinde-gecmise-yolculuk": {
+          title: "Zaman Makinesinde Geçmişe Yolculuk",
+          image: "public/5.webp",
+          category: "Fantastik",
+          badges: ["Örger Yayınları"],
+          price: "$22.00",
+          author: "Kadir Veral",
+          publisher: "Örger Yayınları",
+          pages: "350",
+          year: "2025",
+          rating: 4.5,
+          description: `Tarih yalnızca geçmişte değildir. Bazen bir bilgisayar ekranında, bazen tozlu bir sokakta, bazen de bir vapurun kalkışında yeniden başlar... Özgür, gecenin karanlığında bilgisayar başında sıradan bir keşif yaptığını sanıyordu. Ancak keşfettiği şey bir yazılım değil, tarihin bizzat kendisiydi.
+Yanına en yakın arkadaşı Mert'i de alarak çıktığı bu yolculuk, onları Osmanlı'nın saray sokaklarından Lale Devri'ne, Galata Kulesi'nden Mekteb-i Sultani'ye, tulumbacılardan yeniçerilere kadar uzanan, soluk soluğa bir maceraya sürükledi. Ama en unutulmazı...16 Mayıs sabahında bir rıhtımda, Mustafa Kemal Paşa'nın gözlerinde bir milletin geleceğini görmeleriydi. "ZAMAN MAKİNESİNDE GEÇMİŞE YOLCULUK", zamanın kıvrımları arasında sürüklenen iki gencin hem kendilerini hem geçmişi, hem de geleceği yeniden keşfedişinin hikâyesi.
+Tarih ve kurgu iç içe geçerken, gerçek ile hayalin sınırı silikleşiyor.
+Ve sorulacak tek bir soru kalıyor:
+Ya sen, geçmişin tam ortasında uyansaydın? Eğitimci Usta kalem Kadir VERAL'ın "ZAMAN MAKİNESİNDE GEÇMİŞE YOLCULUK" kitabını heyecan ve keyifle okuyacaksınız.`,
+          summary: `Tarih yalnızca geçmişte değildir. Bazen bir bilgisayar ekranında, bazen tozlu bir sokakta, bazen de bir vapurun kalkışında yeniden başlar... Özgür, gecenin karanlığında bilgisayar başında sıradan bir keşif yaptığını sanıyordu. Ancak keşfettiği şey bir yazılım değil, tarihin bizzat kendisiydi.
+Yanına en yakın arkadaşı Mert'i de alarak çıktığı bu yolculuk, onları Osmanlı'nın saray sokaklarından Lale Devri'ne, Galata Kulesi'nden Mekteb-i Sultani'ye, tulumbacılardan yeniçerilere kadar uzanan, soluk soluğa bir maceraya sürükledi. Ama en unutulmazı...16 Mayıs sabahında bir rıhtımda, Mustafa Kemal Paşa'nın gözlerinde bir milletin geleceğini görmeleriydi. "ZAMAN MAKİNESİNDE GEÇMİŞE YOLCULUK", zamanın kıvrımları arasında sürüklenen iki gencin hem kendilerini hem geçmişi, hem de geleceği yeniden keşfedişinin hikâyesi.
+Tarih ve kurgu iç içe geçerken, gerçek ile hayalin sınırı silikleşiyor.
+Ve sorulacak tek bir soru kalıyor:
+Ya sen, geçmişin tam ortasında uyansaydın? Eğitimci Usta kalem Kadir VERAL'ın "ZAMAN MAKİNESİNDE GEÇMİŞE YOLCULUK" kitabını heyecan ve keyifle okuyacaksınız.`,
+          toc: [
+            "Giriş",
+            "Bilgisayar Başında Keşif",
+            "Osmanlı'nın Saray Sokakları",
+            "Lale Devri",
+            "Galata Kulesi",
+            "Mekteb-i Sultani",
+            "Tulumbacılar ve Yeniçeriler",
+            "16 Mayıs Sabahı",
+            "Mustafa Kemal Paşa",
+            "Geleceğin Keşfi",
+            "Sonuç",
+          ],
+          quote:
+            '"Tarih yalnızca geçmişte değildir. Bazen bir bilgisayar ekranında, bazen tozlu bir sokakta, bazen de bir vapurun kalkışında yeniden başlar..."',
+        },
+        "amazonlarin-sirri": {
+          title: "Amazonların Sırrı",
+          image: "public/4.webp",
+          category: "Fantastik",
+          badges: ["Örger Yayınları"],
+          price: "$28.00",
+          author: "Kadir Veral",
+          publisher: "Örger Yayınları",
+          paper: "2. Hamur",
+          pages: "70",
+          size: "13,5 x 19,5",
+          year: "2025",
+          edition: "1. Basım",
+          language: "Türkçe",
+          rating: 5.0,
+          description:
+            "Mert ve Özgür, Terme'nin Kumcağız sahilinde, denizin dibinde kirli moloz yığınları arasında gizemli bir fok ve rehber yunuslarla karşılaşır. Bu deniz canlıları, onları sadece bir mağaraya değil; Amazon kadın savaşçılarının binlerce yıl önce inşa ettiği gizli bir sığınağa götürür. Amazonlar, bu sığınağı bölgenin hayati temiz su kaynağını korumak için bir kalkan olarak bırakmıştır. Su kaynağı kirlenmek üzeredir. İki çocuk, Amazonların mirasını ve tüm bir çevreyi kurtarmak için elde ettikleri kanıtlarla büyük bir mücadele başlatır. Mert ve Özgür'ün cesareti sayesinde kirlilik durdurulur ve Amazonların efsanevi koruyuculuğu tüm dünyaya tanıtılır. Sürükleyici ve macera dolu bir kitap sizleri bekliyor.",
+          summary:
+            "Mert ve Özgür, Terme'nin Kumcağız sahilinde, denizin dibinde kirli moloz yığınları arasında gizemli bir fok ve rehber yunuslarla karşılaşır. Bu deniz canlıları, onları Amazon kadın savaşçılarının binlerce yıl önce inşa ettiği gizli bir sığınağa götürür. Amazonların mirasını ve bölgenin hayati su kaynağını korumak için verilen mücadeleye tanıklık ederler.",
+          toc: [
+            "Kumcağız Sahili",
+            "Gizemli Fok ve Yunuslar",
+            "Denizin Dibindeki Keşif",
+            "Amazonların Gizli Sığınağı",
+            "Temiz Su Kaynağı",
+            "Kirlilik Tehlikesi",
+            "Büyük Mücadele",
+            "Amazonların Mirası",
+            "Efsanevi Koruyuculuk",
+            "Sonuç",
+          ],
+          quote: '"Her sır, bir gün açığa çıkmayı bekler."',
+        },
+        iris: {
+          title: "İris",
+          image: "public/6.webp",
+          category: "Roman",
+          badges: ["Roman", "Edebiyat", "Drama"],
+          price: "$25.00",
+          author: "Kadir Veral",
+          publisher: "Örger Yayınları",
+          pages: "400",
+          year: "2024",
+          rating: 4.5,
+          description:
+            "İris, derin duygusal katmanları ve zengin karakter gelişimiyle okuyucuları etkileyen bir roman.",
+          summary:
+            "İris, hayatın farklı yönlerini keşfeden, derin duygusal katmanları ve zengin karakter gelişimiyle okuyucuları etkileyen bir roman. Her sayfasında yeni bir keşif ve duygusal bir yolculuk sunar.",
+          toc: [
+            "Başlangıç",
+            "İlk Karşılaşma",
+            "Gelişen İlişkiler",
+            "Zorluklar",
+            "Çözüm",
+            "Sonuç",
+          ],
+          quote: '"İris, gözlerin gördüğü değil, kalbin hissettiğidir."',
+        },
+        "3-kadin-2-ask-1-adam": {
+          title: "3 Kadın 2 Aşk 1 Adam",
+          image: "public/15.jpeg",
+          category: "Roman",
+          badges: ["Roman", "Aşk", "Drama"],
+          price: "$30.00",
+          author: "Kadir Veral",
+          publisher: "Örger Yayınları",
+          pages: "380",
+          year: "2024",
+          rating: 4.0,
+          description:
+            "ÜÇ KADIN, İKİ AŞK, BİR ADAM...\n\nÇocukluğun merdiven basamaklarından kayıp düşen bir yaşam,\n\nBir kadının puslu siluetini aralayan berrak ay ışığı,\n\nDenizin en koyu renkleriyle gırtlağına çöktüğü şirin bir ada,\n\nCılız umutlarla en kavi gerçeklerin amansız meydan savaşı,\n\nVe bir adamın ipotekli tebessümlerinin sayıklayan gözyaşları...\n\nKadir VERAL; size bir solukta okuyacağınız, bin bir gece etkisinden kurtulamayacağınız bir öyküyü fısıldıyor...\n\nYüreğiyle işitebilenler için çakırkeyif, mucize bir hikâye!\n\nBaşlayalım...",
+          summary:
+            "ÜÇ KADIN, İKİ AŞK, BİR ADAM... Çocukluğun merdiven basamaklarından kayıp düşen bir yaşam ve bir adamın ipotekli tebessümlerinin sayıklayan gözyaşlarıyla örülen, etkileyici bir roman.",
+          toc: [
+            "İlk Kadın",
+            "İkinci Kadın",
+            "Üçüncü Kadın",
+            "İlk Aşk",
+            "İkinci Aşk",
+            "Bir Adam",
+            "Sonuç",
+          ],
+          quote: '"Aşk, sayılarla ölçülemez, sadece hissedilir."',
+        },
+      };
+
+      // Get book from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookId = urlParams.get("book") || "kiraz-sofrasi";
+      const book = booksData[bookId] || booksData["kiraz-sofrasi"];
+
+      // Update page title
+      document.title = `${book.title} - Kadir Veral`;
+
+      // Update WhatsApp order link with book title
+      const waBtn = document.getElementById("waOrder");
+      if (waBtn) {
+        const msg = `Merhaba, ${book.title} kitabı için sipariş vermek istiyorum.`;
+        waBtn.href = `https://wa.me/905434437828?text=${encodeURIComponent(
+          msg
+        )}`;
+      }
+
+      // Update breadcrumb
+      const breadcrumb = document.querySelector(".breadcrumb .container");
+      if (breadcrumb) {
+        breadcrumb.innerHTML = `
+                <a href="index.html">Ana sayfa</a>
+                <span>/</span>
+                <a href="index.html#kitaplar">Kitap</a>
+                <span>/</span>
+                <span>${book.title}</span>
+            `;
+      }
+
+      // Update book cover
+      const bookCoverImage = document.getElementById("bookCoverImage");
+      if (bookCoverImage) {
+        if (book.image) {
+          // Load primary cover with graceful fallbacks if missing
+          const candidates = [book.image];
+          if (bookId === 'kiraz-sofrasi') {
+            candidates.push('public/3.jpeg', 'public/3.jpg');
+          }
+          candidates.push('public/placeholder.webp');
+
+          let ci = 0;
+          const loadNext = () => {
+            if (ci >= candidates.length) return;
+            bookCoverImage.src = candidates[ci++];
+          };
+          bookCoverImage.onerror = loadNext;
+          loadNext();
+
+          bookCoverImage.alt = book.title;
+          bookCoverImage.style.display = "block";
+        } else {
+          // Placeholder for books without image
+          bookCoverImage.style.display = "none";
+          const container = document.querySelector(".book-3d-container");
+          const placeholder = document.createElement("div");
+          placeholder.className = "book-3d-placeholder";
+          placeholder.innerHTML = `
+                    <i class="fas fa-book"></i>
+                    <span>Görsel Eklenecek</span>
+                `;
+          if (container && !container.querySelector(".book-3d-placeholder")) {
+            container.appendChild(placeholder);
+          }
+        }
+      }
+
+      // Update book info
+      document.getElementById("bookTitle").textContent = book.title;
+
+      const bookMeta = document.getElementById("bookMeta");
+      bookMeta.innerHTML =
+        (book.badges || [])
+          .map((badge) => `<span class="badge">${badge}</span>`)
+          .join("") +
+        (book.author
+          ? `<span class="dot"></span><span>${book.author}</span>`
+          : "") +
+        (book.publisher
+          ? `<span class="dot"></span><span>${book.publisher}</span>`
+          : "") +
+        (book.pages
+          ? `<span class="dot"></span><span>${book.pages} sayfa</span>`
+          : "") +
+        (book.year ? `<span class="dot"></span><span>${book.year}</span>` : "");
+
+      const bookRating = document.getElementById("bookRating");
+      let starsHtml = "";
+      for (let i = 1; i <= 5; i++) {
+        starsHtml += `<i class="${
+          i <= Math.floor(book.rating) ? "fas" : "far"
+        } fa-star"></i>`;
+      }
+      if (book.rating % 1 !== 0) {
+        const halfStarIndex = Math.floor(book.rating);
+        starsHtml = "";
+        for (let i = 1; i <= 5; i++) {
+          if (i <= halfStarIndex) {
+            starsHtml += `<i class="fas fa-star"></i>`;
+          } else if (i === halfStarIndex + 1) {
+            starsHtml += `<i class="fas fa-star-half-alt"></i>`;
+          } else {
+            starsHtml += `<i class="far fa-star"></i>`;
+          }
+        }
+      }
+      bookRating.innerHTML =
+        starsHtml + `<span class="rating-text">${book.rating}</span>`;
+
+      const descEl = document.getElementById("bookDescription");
+      if (descEl) descEl.textContent = book.description;
+      const summaryEl = document.getElementById("bookSummary");
+      if (summaryEl) summaryEl.textContent = book.summary;
+
+      const bookToc = document.getElementById("bookToc");
+      if (bookToc) {
+        bookToc.innerHTML = book.toc
+          .map((item, index) => `<li>${item}</li>`)
+          .join("");
+      }
+
+      const quoteEl = document.getElementById("bookQuote");
+      if (quoteEl) quoteEl.textContent = book.quote;
+
+      // Inject per-book promo video with fallback sources (section stays visible with placeholder if none works)
+      (function(){
+        const candidatesMap = {
+          'kiraz-sofrasi': ['video/3.mp4'],
+          'yildizlardan-gelen-misafir': ['video/4.mp4'],
+          'amazonlarin-sirri': ['video/1.mp4'],
+          'zaman-makinesinde-gecmise-yolculuk': ['video/2.mp4']
+        };
+        const section = document.getElementById('detailVideoSection');
+        const videoEl = document.getElementById('detailVideo');
+        const list = candidatesMap[bookId] || [];
+
+        if (!section || !videoEl) return;
+
+        section.style.display = '';
+        videoEl.setAttribute('poster', book.image || 'public/placeholder.webp');
+        videoEl.setAttribute('playsinline', '');
+        videoEl.setAttribute('controlslist', 'nodownload');
+
+        // Try sources sequentially until one loads
+        let i = 0;
+        const tryNext = () => {
+          if (i >= list.length) {
+            // No playable source found; show a friendly placeholder
+            const frame = section.querySelector('.detail-video-frame');
+            if (frame) {
+              frame.innerHTML = `
+                <div style="display:flex;align-items:center;justify-content:center;height:220px;color:#fff;opacity:.9;">
+                  <span style="font-family: var(--font-display); letter-spacing:.02em;">Video yakında eklenecek</span>
+                </div>
+              `;
+            }
+            return;
+          }
+          const src = list[i++];
+          const onLoaded = () => {
+            videoEl.removeEventListener('error', onError);
+          };
+          const onError = () => {
+            videoEl.removeEventListener('loadedmetadata', onLoaded);
+            tryNext();
+          };
+          videoEl.addEventListener('loadedmetadata', onLoaded, { once: true });
+          videoEl.addEventListener('error', onError, { once: true });
+          videoEl.src = src;
+        };
+        if (list.length === 0) {
+          const frame = section.querySelector('.detail-video-frame');
+          if (frame) {
+            frame.innerHTML = `
+              <div style="display:flex;align-items:center;justify-content:center;height:220px;color:#fff;opacity:.9;">
+                <span style="font-family: var(--font-display); letter-spacing:.02em;">Video yakında eklenecek</span>
+              </div>
+            `;
+          }
+        } else {
+          tryNext();
+        }
+      })();
+
+      // Generate related books (exclude current book); only show cards with images
+      const relatedCarousel = document.getElementById("relatedCarousel");
+      if (relatedCarousel) {
+        const entries = Object.entries(booksData).filter(([id]) => id !== bookId);
+        // Only books that have images
+        let withImg = entries.filter(([, b]) => !!b.image);
+        // Keep a reference to İris
+        const irisEntry = ['iris', booksData['iris']];
+        // Remove any Iris from the pool (will append as 5th)
+        withImg = withImg.filter(([id]) => id !== 'iris');
+
+        // Build first 4 items from image-backed books
+        let otherBooks = withImg.slice(0, 4);
+
+        // If Kiraz Sofrası exists in the pool but not in the first 4, bring it to 4th slot
+        const kirazIndexInPool = withImg.findIndex(([id]) => id === 'kiraz-sofrasi');
+        const kirazInSelectionIndex = otherBooks.findIndex(([id]) => id === 'kiraz-sofrasi');
+        if (kirazInSelectionIndex === -1 && kirazIndexInPool !== -1) {
+          const [kirazItem] = withImg.splice(kirazIndexInPool, 1);
+          // Ensure we still have max 4 before inserting Kiraz
+          if (otherBooks.length === 4) otherBooks.pop();
+          otherBooks.splice(3, 0, kirazItem);
+        }
+
+        // Ensure exactly 4 items (all with images)
+        otherBooks = otherBooks.slice(0, 4);
+        // Append İris as the 5th card (it has an image)
+        otherBooks.push(irisEntry);
+
+        relatedCarousel.innerHTML = otherBooks
+          .map(([id, relatedBook], index) => {
+            const imageHtml = relatedBook.image
+              ? `<img src="${relatedBook.image}" alt="${relatedBook.title}">`
+              : `<div class="book-card-placeholder">
+                        <i class="fas fa-book"></i>
+                        <span>Görsel Eklenecek</span>
+                       </div>`;
+
+            const badge = ""; // Best Sale rozetini kaldır
+
+            return `
+              <a href="book-detail.html?book=${id}" class="b-card">
+                <div class="b-card-media">
+                  ${badge}
+                  ${imageHtml}
+                </div>
+                <div class="b-card-caption">
+                  <div class="b-card-title">${relatedBook.title}</div>
+                </div>
+              </a>
+            `;
+          })
+          .join("");
+      }
+
+      // Mobile menu toggle
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const nav = document.querySelector(".nav");
+      mobileToggle.addEventListener("click", () => {
+        mobileToggle.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+
+      const tabs = document.querySelectorAll(".tab");
+      const panels = document.querySelectorAll(".tab-panel");
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          panels.forEach((p) => p.classList.remove("active"));
+          tab.classList.add("active");
+          const id = tab.dataset.tab;
+          document.getElementById(id).classList.add("active");
+        });
+      });
+
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector(".header");
+        if (window.scrollY > 50) header.classList.add("scrolled");
+        else header.classList.remove("scrolled");
+      });
+
+      // Professional 3D Book Cover Effect
+      const bookCover = document.getElementById("bookCover3D");
+      const bookContainer = bookCover?.querySelector(".book-3d-container");
+
+      if (bookCover && bookContainer) {
+        let isHovering = false;
+
+        bookCover.addEventListener("mousemove", (e) => {
+          if (!isHovering) return;
+
+          const rect = bookCover.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+
+          const rotateX = ((y - centerY) / centerY) * -20;
+          const rotateY = ((x - centerX) / centerX) * 25;
+
+          const translateZ = 30;
+          const scale = 1.08;
+
+          bookContainer.style.transform = `
+                    perspective(1500px) 
+                    rotateX(${rotateX}deg) 
+                    rotateY(${rotateY}deg) 
+                    translateZ(${translateZ}px)
+                    scale(${scale})
+                `;
+
+          // Update shadow position
+          const shadow = bookCover.querySelector(".book-3d-shadow");
+          if (shadow) {
+            const shadowOffset = rotateY * 0.5;
+            shadow.style.transform = `translateX(${shadowOffset}px) translateZ(-80px) scale(1.1)`;
+          }
+        });
+
+        bookCover.addEventListener("mouseenter", () => {
+          isHovering = true;
+          bookContainer.style.transition = "none";
+          bookCover.classList.add("hovering");
+        });
+
+        bookCover.addEventListener("mouseleave", () => {
+          isHovering = false;
+          bookContainer.style.transition =
+            "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)";
+          bookContainer.style.transform =
+            "perspective(1500px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)";
+          bookCover.classList.remove("hovering");
+
+          const shadow = bookCover.querySelector(".book-3d-shadow");
+          if (shadow) {
+            shadow.style.transform =
+              "translateX(0) translateZ(-80px) scale(0.8)";
+          }
+        });
+      }
+
+      // Related Books Carousel
+    </script>
+  </body>
+</html>
