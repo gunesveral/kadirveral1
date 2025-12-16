@@ -582,6 +582,53 @@ Ya sen, geçmişin tam ortasında uyansaydın? Eğitimci Usta kalem Kadir VERAL'
       // Update page title
       document.title = `${book.title} - Kadir Veral`;
 
+      // Inject Book JSON-LD for SEO using current book data
+      (function injectBookJsonLd(){
+        try {
+          const toAbsolute = (src) => {
+            if (!src) return undefined;
+            if (/^https?:\/\//i.test(src)) return src;
+            const base = window.location.origin.replace(/\/$/, "");
+            const path = String(src).replace(/^\//, "");
+            return `${base}/${path}`;
+          };
+
+          const schema = {
+            "@context": "https://schema.org",
+            "@type": "Book",
+            name: book.title,
+            author: {
+              "@type": "Person",
+              name: "Kadir Veral"
+            },
+            image: toAbsolute(book.image || 'public/placeholder.webp'),
+            url: window.location.href,
+            description: book.summary || book.description,
+            publisher: book.publisher ? { "@type": "Organization", name: book.publisher } : undefined,
+            numberOfPages: book.pages ? Number(String(book.pages).replace(/[^0-9]/g, '')) : undefined,
+            datePublished: book.year || undefined,
+            aggregateRating: book.rating ? {
+              "@type": "AggregateRating",
+              ratingValue: book.rating,
+              ratingCount: 1
+            } : undefined
+          };
+
+          // Remove undefined fields
+          Object.keys(schema).forEach(k => schema[k] === undefined && delete schema[k]);
+
+          const existing = document.getElementById('book-jsonld');
+          if (existing) existing.remove();
+          const script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.id = 'book-jsonld';
+          script.textContent = JSON.stringify(schema);
+          document.head.appendChild(script);
+        } catch (e) {
+          console.error('JSON-LD injection failed', e);
+        }
+      })();
+
       // Update WhatsApp order link with book title
       const waBtn = document.getElementById("waOrder");
       if (waBtn) {
