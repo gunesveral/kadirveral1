@@ -1300,11 +1300,12 @@ body {
     }
 
     .book-more-info {
-        font-size: 0.64rem;
-        padding: 6px 10px;
-        min-width: 100px;
-        max-width: 140px;
-        width: 85%;
+        font-size: 0.62rem;
+        padding: 5px 10px;
+        min-width: 90px;
+        max-width: 130px;
+        width: 75%;
+        margin: 8px auto 0;
         box-sizing: border-box;
         box-shadow: 0 4px 10px rgba(11, 28, 62, 0.08), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* mobilde daha küçük */
@@ -1341,6 +1342,7 @@ body {
 
     .books-grid {
         max-width: 100%;
+        justify-items: center;
         column-gap: 48px;
         row-gap: 16px;
         padding: 0 12px;
@@ -1358,11 +1360,12 @@ body {
     }
 
     .book-more-info {
-        font-size: 0.58rem;
-        padding: 5px 8px;
-        min-width: 90px;
-        max-width: 120px;
-        width: 82%;
+        font-size: 0.56rem;
+        padding: 4px 8px;
+        min-width: 84px;
+        max-width: 112px;
+        width: 72%;
+        margin: 6px auto 0;
         box-sizing: border-box;
         box-shadow: 0 3px 8px rgba(11, 28, 62, 0.08), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* çok dar telefonlarda daha küçük */

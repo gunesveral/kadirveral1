@@ -164,23 +164,23 @@ Kadir Veral Ekibi`;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mesajınız Alındı</title>
         <style>
-          body{margin:0;padding:0;background:#f7f7f9;color:#1f2937;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif}
+          body{margin:0;padding:0;background:#f6f7fb;color:#0f172a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif}
           .container{max-width:680px;margin:0 auto;padding:28px 16px}
           .brand{display:flex;align-items:center;gap:10px;color:#0b1c3e;font-weight:800;letter-spacing:.06em}
-          .brand-mark{width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#b83a3a,#0b1c3e)}
-          .card{margin-top:14px;background:#fff;border:1px solid #ececf1;border-radius:16px;box-shadow:0 14px 34px rgba(15,23,42,.06)}
-          .hero{padding:22px 24px;border-bottom:1px solid #f1f1f6;background:linear-gradient(180deg, #ffffff 0%, #fafbff 100%);border-top-left-radius:16px;border-top-right-radius:16px}
-          .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#eef2ff;color:#334155;border:1px solid #e5e7eb;padding:6px 10px;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+          .brand-mark{width:12px;height:12px;border-radius:3px;background:linear-gradient(135deg,#b83a3a,#d4a574)}
+          .card{margin-top:14px;background:#fff;border:1px solid #e8eaf1;border-radius:16px;box-shadow:0 14px 34px rgba(15,23,42,.06)}
+          .hero{padding:22px 24px;border-bottom:1px solid #eef2ff;background:linear-gradient(135deg,#ffffff 0%,#fbfcff 60%,#f6fafc 100%);border-top-left-radius:16px;border-top-right-radius:16px}
+          .eyebrow{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#eef2ff,#ffeef0);color:#334155;border:1px solid #e5e7eb;padding:6px 10px;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
           .title{margin:12px 0 4px;font-size:22px;font-weight:800;color:#0f172a}
           .subtitle{margin:0;color:#475569;font-size:14px}
           .content{padding:22px 24px}
           .p{margin:0 0 12px 0;line-height:1.7}
           .thanks{font-weight:700;color:#0b1c3e}
-          .meta{margin-top:18px;padding:14px;background:#fafafa;border:1px solid #eee;border-radius:12px}
-          .row{display:flex;gap:12px;flex-wrap:wrap}
-          .field{flex:1 1 240px}
-          .label{font-size:12px;font-weight:700;letter-spacing:.06em;color:#6b7280;text-transform:uppercase;margin-bottom:6px}
-          .box{background:#ffffff;border:1px solid #e5e7eb;border-radius:10px;padding:10px 12px;white-space:pre-wrap}
+          .meta{margin-top:16px;display:grid;grid-template-columns:1fr;gap:12px}
+          .label{font-size:12px;font-weight:800;letter-spacing:.06em;color:#6b7280;text-transform:uppercase;margin-bottom:6px}
+          .box{background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:12px 14px;white-space:pre-wrap}
+          .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:linear-gradient(135deg,#fff5f5,#fff8eb);border:1px solid #fde2e2}
+          .pill .label{margin:0;color:#b83a3a}
           .footer{padding:0 24px 22px 24px;color:#64748b;font-size:12px}
           .link{color:#0b1c3e;text-decoration:none;font-weight:700}
         </style>
@@ -196,20 +196,15 @@ Kadir Veral Ekibi`;
             </div>
             <div class="content">
               <p class="p">Merhaba <strong>${escapeHtml(name)}</strong>,</p>
-              <p class="p">Bize ulaştığınız için <span class="thanks">teşekkür ederiz</span>. Mesajınızı aldık ve en kısa sürede yanıtlayacağız.</p>
+              <div class="pill"><span class="label">Mesajınız</span><span>${escapeHtml(message)}</span></div>
+              <p class="p" style="margin-top:12px">Bize ulaştığınız için <span class="thanks">teşekkür ederiz</span>. Mesajınızı aldık ve en kısa sürede yanıtlayacağız.</p>
               <div class="meta">
-                <div class="row">
-                  <div class="field">
-                    <div class="label">Ad Soyad</div>
-                    <div class="box">${escapeHtml(name)}</div>
-                  </div>
-                  <div class="field">
-                    <div class="label">Mesaj</div>
-                    <div class="box">${escapeHtml(message)}</div>
-                  </div>
+                <div>
+                  <div class="label">Ad Soyad</div>
+                  <div class="box">${escapeHtml(name)}</div>
                 </div>
               </div>
-              <p class="p" style="margin-top:16px">Ek bilgi paylaşmak isterseniz bu e‑postayı doğrudan yanıtlayabilirsiniz.</p>
+              <p class="p" style="margin-top:14px">Ek bilgi paylaşmak isterseniz bu e‑postayı doğrudan yanıtlayabilirsiniz.</p>
             </div>
             <div class="footer">
               Bu e‑posta, talebinizin alındığını bildiren otomatik bir mesajdır.
