@@ -2822,6 +2822,28 @@ body.no-scroll {
         width: 100%;
         max-width: 280px;
     }
+
+    /* Hide per-card CTA on mobile; entire card already links to detail */
+    .book-more-info {
+        display: none !important;
+    }
+
+    /* Hero: simple, left-aligned copy on mobile */
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .hero-text-wrapper {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .hero-description {
+        text-align: left;
+        margin-top: 8px;
+    }
 }
 
 .hero {
