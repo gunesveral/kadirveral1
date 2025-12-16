@@ -1222,7 +1222,7 @@ body {
 
     .books-grid {
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 32px;
+        column-gap: 40px;
         row-gap: 18px;
         max-width: 100%;
         margin: 0 auto 50px;
@@ -1244,6 +1244,7 @@ body {
         font-size: 0.7rem;
         padding: 7px 12px;
         min-width: 130px;
+        box-shadow: 0 6px 14px rgba(11, 28, 62, 0.14), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* mobilde daha küçük */
     }
 
@@ -1274,7 +1275,7 @@ body {
 
     .books-grid {
         max-width: 100%;
-        column-gap: 28px;
+        column-gap: 36px;
         row-gap: 16px;
         padding: 0 10px;
     }
@@ -1294,6 +1295,7 @@ body {
         font-size: 0.62rem;
         padding: 6px 10px;
         min-width: 110px;
+        box-shadow: 0 5px 12px rgba(11, 28, 62, 0.12), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* çok dar telefonlarda daha küçük */
     }
 
@@ -2712,7 +2714,7 @@ body.no-scroll {
 
     .books-grid {
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 34px;
+        column-gap: 42px;
         row-gap: 18px;
         padding: 0 10px;
     }
