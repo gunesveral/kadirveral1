@@ -502,6 +502,20 @@ body {
         line-height: 1.95;
         color: rgba(0, 0, 0, 0.85);
     }
+
+    .detail-video-section {
+        margin-top: 22px;
+        padding: 0 16px;
+    }
+}
+
+/* Improve spacing for detail video section on all sizes */
+.detail-video-section {
+    margin-top: 28px;
+}
+
+.detail-video-title {
+    margin-bottom: 12px;
 }
 
 /* Logo - Premium - Modern & Visionary */
@@ -1291,7 +1305,8 @@ body {
         min-width: 100px;
         max-width: 140px;
         width: 85%;
-        box-shadow: 0 6px 14px rgba(11, 28, 62, 0.14), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
+        box-sizing: border-box;
+        box-shadow: 0 4px 10px rgba(11, 28, 62, 0.08), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* mobilde daha küçük */
     }
 
@@ -1348,8 +1363,22 @@ body {
         min-width: 90px;
         max-width: 120px;
         width: 82%;
-        box-shadow: 0 5px 12px rgba(11, 28, 62, 0.12), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
+        box-sizing: border-box;
+        box-shadow: 0 3px 8px rgba(11, 28, 62, 0.08), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* çok dar telefonlarda daha küçük */
+    }
+
+    /* iPhone 12/13 mini, 430px ve altı için daha fazla ayrım */
+    @media (max-width: 430px) {
+        .books-grid {
+            column-gap: 56px;
+            padding: 0 14px;
+        }
+
+        .book-more-info {
+            width: 80%;
+            max-width: 128px;
+        }
     }
 
     .book-more-info::after {
