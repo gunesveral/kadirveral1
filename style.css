@@ -1222,7 +1222,8 @@ body {
 
     .books-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        column-gap: 32px;
+        row-gap: 18px;
         max-width: 100%;
         margin: 0 auto 50px;
         padding: 0 10px;
@@ -1242,7 +1243,7 @@ body {
     .book-more-info {
         font-size: 0.7rem;
         padding: 7px 12px;
-        min-width: 150px;
+        min-width: 130px;
         /* mobilde daha küçük */
     }
 
@@ -1273,8 +1274,9 @@ body {
 
     .books-grid {
         max-width: 100%;
-        gap: 18px;
-        padding: 0 8px;
+        column-gap: 28px;
+        row-gap: 16px;
+        padding: 0 10px;
     }
 
     .book-cover-wrapper {
@@ -1291,7 +1293,7 @@ body {
     .book-more-info {
         font-size: 0.62rem;
         padding: 6px 10px;
-        min-width: 120px;
+        min-width: 110px;
         /* çok dar telefonlarda daha küçük */
     }
 
@@ -2710,7 +2712,8 @@ body.no-scroll {
 
     .books-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        column-gap: 34px;
+        row-gap: 18px;
         padding: 0 10px;
     }
 

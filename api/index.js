@@ -21,34 +21,36 @@ app.use((req, res, next) => {
 
 // Health check
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
+// Also expose without /api prefix for Vercel function mount
+app.get('/health', (_req, res) => res.json({ ok: true }));
 
 // Contact endpoint (JSON API)
-app.post('/api/contact', async (req, res) => {
+export const contactHandler = async (req, res) => {
   try {
     const { name, email, topic, phone, message } = req.body || {};
 
     if (!name || !email || !message || !topic) {
-      return res.status(400).json({ 
-        ok: false, 
-        error: 'Lütfen gerekli alanları doldurun.' 
+      return res.status(400).json({
+        ok: false,
+        error: 'Lütfen gerekli alanları doldurun.'
       });
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ 
-        ok: false, 
-        error: 'Geçerli bir e-posta adresi giriniz.' 
+      return res.status(400).json({
+        ok: false,
+        error: 'Geçerli bir e-posta adresi giriniz.'
       });
     }
 
     // Check if SMTP credentials are configured
     if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
       console.error('SMTP credentials not configured. Please set SMTP_USER and SMTP_PASS in .env file');
-      return res.status(500).json({ 
-        ok: false, 
-        error: 'Email servisi yapılandırılmamış. Lütfen .env dosyasını kontrol edin.' 
+      return res.status(500).json({
+        ok: false,
+        error: 'Email servisi yapılandırılmamış. Lütfen .env dosyasını kontrol edin.'
       });
     }
 
@@ -68,9 +70,9 @@ app.post('/api/contact', async (req, res) => {
       await transporter.verify();
     } catch (verifyError) {
       console.error('SMTP verification failed:', verifyError);
-      return res.status(500).json({ 
-        ok: false, 
-        error: 'Email servisi doğrulanamadı. SMTP ayarlarınızı kontrol edin.' 
+      return res.status(500).json({
+        ok: false,
+        error: 'Email servisi doğrulanamadı. SMTP ayarlarınızı kontrol edin.'
       });
     }
 
@@ -213,10 +215,10 @@ Kadir Veral Ekibi`;
     return res.json({ ok: true, message: 'Mesajınız başarıyla gönderildi!' });
   } catch (err) {
     console.error('Email error:', err);
-    
+
     // More detailed error messages
     let errorMessage = 'Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.';
-    
+
     if (err.code === 'EAUTH') {
       errorMessage = 'Email kimlik doğrulama hatası. SMTP kullanıcı adı ve şifresini kontrol edin.';
     } else if (err.code === 'ECONNECTION') {
@@ -226,19 +228,23 @@ Kadir Veral Ekibi`;
     } else if (err.message) {
       errorMessage = `Email hatası: ${err.message}`;
     }
-    
-    return res.status(500).json({ 
-      ok: false, 
-      error: errorMessage 
+
+    return res.status(500).json({
+      ok: false,
+      error: errorMessage
     });
   }
-});
+};
+
+// Register for both /api/contact and /contact (Vercel mapping compatibility)
+app.post('/api/contact', contactHandler);
+app.post('/contact', contactHandler);
 
 // HTML form fallback (for traditional form submission)
-app.post('/api/form', async (req, res) => {
+export const formHandler = async (req, res) => {
   try {
     const { name, email, topic, phone, message } = req.body || {};
-    
+
     if (!name || !email || !message || !topic) {
       return res.redirect(303, '/form.html?error=missing');
     }
@@ -286,7 +292,11 @@ app.post('/api/form', async (req, res) => {
     console.error('Email error:', err);
     return res.redirect(303, '/form.html?error=server');
   }
-});
+};
+
+// Register for both /api/form and /form
+app.post('/api/form', formHandler);
+app.post('/form', formHandler);
 
 function escapeHtml(str = '') {
   return String(str)
