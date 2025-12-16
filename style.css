@@ -2844,6 +2844,27 @@ body.no-scroll {
         text-align: left;
         margin-top: 8px;
     }
+
+    /* News page: ensure comfortable side paddings on mobile */
+    .news-section .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section-header {
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .section-desc {
+        margin-top: 8px;
+    }
+
+    .news-grid {
+        padding-left: 4px;
+        padding-right: 4px;
+        gap: 22px;
+    }
 }
 
 .hero {
