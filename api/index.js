@@ -144,55 +144,75 @@ export const contactHandler = async (req, res) => {
     });
 
     // Bilgilendirme e-postası: gönderene "Mesajınız alındı" bildirimi
-    const acknowledgementSubject = 'Mesajınız alındı - Kadir Veral';
+    const acknowledgementSubject = 'Mesajınız alındı – Teşekkür ederiz | Kadir Veral';
     const acknowledgementText = `Merhaba ${name},
 
-Mesajınız başarıyla alındı. Konu: ${topic}
+Bize ulaştığınız için teşekkür ederiz. Mesajınızı aldık ve en kısa sürede dönüş yapacağız.
 
-En kısa sürede dönüş yapacağız.
+Konu: ${topic}
+
+Bu e-posta, talebinizin alındığını bildiren otomatik bir mesajdır. Ek bilgi paylaşmak isterseniz bu e-postayı yanıtlayabilirsiniz.
 
 Sevgiler,
 Kadir Veral Ekibi`;
 
     const acknowledgementHtml = `
       <!DOCTYPE html>
-      <html>
+      <html lang="tr">
       <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mesajınız Alındı</title>
         <style>
-          body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #1f1f1f; background: #f8f8f8; padding: 0; margin: 0; }
-          .wrapper { max-width: 640px; margin: 0 auto; padding: 32px 20px; }
-          .card { background: #ffffff; border-radius: 14px; padding: 28px; box-shadow: 0 10px 35px rgba(0,0,0,0.06); border: 1px solid #f0f0f0; }
-          .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: #eef2ff; color: #4b5563; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
-          .title { margin: 18px 0 10px; font-size: 24px; font-weight: 700; color: #111827; }
-          .meta { color: #6b7280; font-size: 14px; margin-bottom: 18px; }
-          .section { margin: 18px 0; }
-          .label { font-weight: 700; color: #374151; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
-          .box { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; color: #1f2937; white-space: pre-wrap; }
-          .footer { margin-top: 24px; color: #6b7280; font-size: 13px; line-height: 1.6; }
-          .accent { color: #b45309; font-weight: 700; }
+          body{margin:0;padding:0;background:#f7f7f9;color:#1f2937;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif}
+          .container{max-width:680px;margin:0 auto;padding:28px 16px}
+          .brand{display:flex;align-items:center;gap:10px;color:#0b1c3e;font-weight:800;letter-spacing:.06em}
+          .brand-mark{width:10px;height:10px;border-radius:2px;background:linear-gradient(135deg,#b83a3a,#0b1c3e)}
+          .card{margin-top:14px;background:#fff;border:1px solid #ececf1;border-radius:16px;box-shadow:0 14px 34px rgba(15,23,42,.06)}
+          .hero{padding:22px 24px;border-bottom:1px solid #f1f1f6;background:linear-gradient(180deg, #ffffff 0%, #fafbff 100%);border-top-left-radius:16px;border-top-right-radius:16px}
+          .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#eef2ff;color:#334155;border:1px solid #e5e7eb;padding:6px 10px;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+          .title{margin:12px 0 4px;font-size:22px;font-weight:800;color:#0f172a}
+          .subtitle{margin:0;color:#475569;font-size:14px}
+          .content{padding:22px 24px}
+          .p{margin:0 0 12px 0;line-height:1.7}
+          .thanks{font-weight:700;color:#0b1c3e}
+          .meta{margin-top:18px;padding:14px;background:#fafafa;border:1px solid #eee;border-radius:12px}
+          .row{display:flex;gap:12px;flex-wrap:wrap}
+          .field{flex:1 1 240px}
+          .label{font-size:12px;font-weight:700;letter-spacing:.06em;color:#6b7280;text-transform:uppercase;margin-bottom:6px}
+          .box{background:#ffffff;border:1px solid #e5e7eb;border-radius:10px;padding:10px 12px;white-space:pre-wrap}
+          .footer{padding:0 24px 22px 24px;color:#64748b;font-size:12px}
+          .link{color:#0b1c3e;text-decoration:none;font-weight:700}
         </style>
       </head>
       <body>
-        <div class="wrapper">
+        <div class="container">
+          <div class="brand"><span class="brand-mark"></span><span>KADİR VERAL</span></div>
           <div class="card">
-            <div class="badge">Kadir Veral · Mesaj Alındı</div>
-            <div class="title">Mesajınız bize ulaştı</div>
-            <div class="meta">Konu: <span class="accent">${escapeHtml(topic)}</span></div>
-
-            <div class="section">
-              <div class="label">Ad Soyad</div>
-              <div class="box">${escapeHtml(name)}</div>
+            <div class="hero">
+              <div class="eyebrow">Mesaj Alındı</div>
+              <div class="title">Mesajınız bize ulaştı</div>
+              <p class="subtitle">Konu: <strong>${escapeHtml(topic)}</strong></p>
             </div>
-
-            <div class="section">
-              <div class="label">Mesaj</div>
-              <div class="box">${escapeHtml(message)}</div>
+            <div class="content">
+              <p class="p">Merhaba <strong>${escapeHtml(name)}</strong>,</p>
+              <p class="p">Bize ulaştığınız için <span class="thanks">teşekkür ederiz</span>. Mesajınızı aldık ve en kısa sürede yanıtlayacağız.</p>
+              <div class="meta">
+                <div class="row">
+                  <div class="field">
+                    <div class="label">Ad Soyad</div>
+                    <div class="box">${escapeHtml(name)}</div>
+                  </div>
+                  <div class="field">
+                    <div class="label">Mesaj</div>
+                    <div class="box">${escapeHtml(message)}</div>
+                  </div>
+                </div>
+              </div>
+              <p class="p" style="margin-top:16px">Ek bilgi paylaşmak isterseniz bu e‑postayı doğrudan yanıtlayabilirsiniz.</p>
             </div>
-
             <div class="footer">
-              Bu bir bilgilendirme mesajıdır. En kısa sürede dönüş yapacağız.<br />
-              Eğer bu talebi siz oluşturmadıysanız bu e-postayı dikkate almayın.
+              Bu e‑posta, talebinizin alındığını bildiren otomatik bir mesajdır.
             </div>
           </div>
         </div>
