@@ -34,6 +34,11 @@
         .related-books-section.bestsellers .related-grid { margin-top: -90px; }
       }
 
+      /* Hide Bestsellers on small mobile screens */
+      @media (max-width: 767px) {
+        .related-books-section.bestsellers { display: none; }
+      }
+
       /* Hover overlay: İncele */
       .related-books-section.bestsellers .b-card { position: relative; overflow: hidden; }
       .related-books-section.bestsellers .b-card::before {

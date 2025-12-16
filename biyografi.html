@@ -107,6 +107,7 @@
         font-size: clamp(1.2rem, 2.5vw, 1.8rem);
         margin-bottom: 12px;
         display: inline-block;
+        text-shadow: 0 2px 8px rgba(11, 28, 62, 0.10);
       }
       .biography-page .section-title::after{
         content: '';
@@ -124,7 +125,21 @@
       }
       /* Only for the 'Hakkında.' title: hide decorative red underline */
       .biography-page .section-title.no-underline::after { display: none; }
-      .biography-page .bio-content p { color: var(--muted); line-height: 1.9; }
+      /* Main biography text */
+      .biography-page .bio-content {
+        max-width: 58ch;
+        font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 1rem;
+      }
+      .biography-page .bio-content p {
+        color: #2b2b2b;
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+      }
+      .biography-page .bio-content p:first-of-type {
+        font-size: 1.05rem;
+        font-weight: 500;
+      }
       /* Timeline */
       .biography-page .timeline { margin: 34px 0; padding-left: 0; list-style: none; position: relative; }
       .biography-page .timeline::before { content:''; position:absolute; left:10px; top:0; bottom:0; width:2px; background: rgba(0,0,0,.08); }
@@ -138,8 +153,17 @@
         background: #fff;
         border-radius: 14px;
         padding: 16px 18px;
-        border: 1px solid rgba(0,0,0,.06);
-        box-shadow: 0 10px 30px rgba(11,28,62,.10);
+        border: 1px solid rgba(10,24,52,.08);
+        box-shadow:
+          0 12px 28px rgba(10,24,52,.10),
+          0 2px 8px rgba(10,24,52,.05);
+        transition: box-shadow .25s ease, transform .25s ease;
+      }
+      .biography-page .highlight:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 18px 38px rgba(10,24,52,.16),
+          0 6px 14px rgba(10,24,52,.08);
       }
       .biography-page .highlight-title { font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: .02em; }
       .biography-page .highlight-text { color: var(--muted); font-size: .95rem; }
@@ -245,7 +269,7 @@
                 yaşamının önemli bir parçasını oluşturmaktadır. LÖSEV gönüllüsü
                 olarak sosyal sorumluluk projelerinde yer almış; çeşitli dernek
                 ve platformlarda yönetim kurulu üyeliği ve başkan yardımcılığı
-                görevleri üstlenmiştir. Aynı zamanda Türkiye Yazarlar Sendikası
+                görevleri üstlenmiştir. Aynı zamanda Atakum Doğayı,Hayvanı,İnsanı Yaşat Derneği Başkan Yardımcısı
                 ve Samsun Gazeteciler Cemiyeti üyesidir. Medya alanında ise
                 GündemArşivi.com’da aktif makale yazarlığı yapmış, Vezirköprü
                 Özlem Gazetesi’nde uzun süre köşe yazıları kaleme almıştır.

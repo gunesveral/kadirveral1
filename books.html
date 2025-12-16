@@ -302,13 +302,17 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
-      @media (max-width: 640px) {
+      /* Daha mobil-dostu: 768px altı tek sütun */
+      @media (max-width: 768px) {
         .shop-grid {
           grid-template-columns: 1fr;
           gap: 24px;
         }
         .shop-header {
-          padding: 140px 20px 60px;
+          padding: 140px 20px 48px;
+        }
+        .shop-container {
+          padding: 12px 20px 80px;
         }
         .shop-toolbar {
           grid-template-columns: 1fr;
@@ -619,6 +623,10 @@
             ><i class="fa-regular fa-envelope"></i
           ></a>
         </div>
+
+        <button class="mobile-toggle" aria-label="Menü">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
@@ -1019,5 +1027,14 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const nav = document.querySelector(".nav");
+      mobileToggle.addEventListener("click", () => {
+        mobileToggle.classList.toggle("active");
+        nav.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>
