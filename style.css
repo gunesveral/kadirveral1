@@ -7,6 +7,14 @@
     box-sizing: border-box;
 }
 
+/* Reusable micro-quote style (matches contact form quote) */
+.micro-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.25rem;
+}
+
 /* Very small devices: single column for book cards */
 @media (max-width: 360px) {
     .books-grid {
@@ -2864,6 +2872,48 @@ body.no-scroll {
         padding-left: 4px;
         padding-right: 4px;
         gap: 22px;
+    }
+
+    /* News hero: stack nicely and avoid overflow on phones */
+    .news-hero {
+        padding: 36px 0 28px;
+    }
+
+    .news-hero .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .news-hero-title {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        letter-spacing: 0.04em;
+    }
+
+    .news-hero-sub {
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+    }
+
+    .news-hero-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        max-width: none;
+    }
+
+    .news-hero-actions {
+        gap: 10px;
+        margin-top: 14px;
+        flex-wrap: wrap;
+    }
+
+    .news-hero .btn.primary,
+    .news-hero .btn.ghost {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .news-hero-media img {
+        max-height: 260px;
     }
 }
 
