@@ -1241,11 +1241,15 @@ body {
     }
 
     .book-more-info {
-        font-size: 0.7rem;
-        padding: 7px 12px;
-        min-width: 130px;
+        font-size: 0.64rem;
+        padding: 6px 10px;
+        min-width: 115px;
         box-shadow: 0 6px 14px rgba(11, 28, 62, 0.14), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* mobilde daha küçük */
+    }
+
+    .book-more-info::after {
+        margin-left: 6px;
     }
 
     .book-card {
@@ -1292,11 +1296,15 @@ body {
     }
 
     .book-more-info {
-        font-size: 0.62rem;
-        padding: 6px 10px;
-        min-width: 110px;
+        font-size: 0.58rem;
+        padding: 5px 8px;
+        min-width: 96px;
         box-shadow: 0 5px 12px rgba(11, 28, 62, 0.12), 0 2px 0 rgba(255, 255, 255, 0.08) inset;
         /* çok dar telefonlarda daha küçük */
+    }
+
+    .book-more-info::after {
+        margin-left: 5px;
     }
 
     .book-card {
