@@ -7,6 +7,20 @@
     box-sizing: border-box;
 }
 
+/* Very small devices: single column for book cards */
+@media (max-width: 360px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 18px;
+        padding: 0 14px;
+    }
+
+    .book-card {
+        align-items: center;
+    }
+}
+
 /* =============================
    Contact Page - Modern Header
    ============================= */
@@ -457,6 +471,37 @@ body {
     justify-content: space-between;
     position: relative;
     z-index: 1;
+}
+
+/* Detail text readability */
+.detail-info {
+    max-width: 760px;
+}
+
+.detail-desc {
+    margin-top: 16px;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: rgba(15, 23, 42, 0.88);
+    text-wrap: pretty;
+}
+
+@media (max-width: 768px) {
+    .detail-hero {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .detail-info {
+        padding: 0 16px;
+    }
+
+    .detail-desc {
+        margin-top: 14px;
+        font-size: 1rem;
+        line-height: 1.95;
+        color: rgba(0, 0, 0, 0.85);
+    }
 }
 
 /* Logo - Premium - Modern & Visionary */
