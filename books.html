@@ -633,17 +633,9 @@
     <main>
       <section class="shop-header">
         <h1 class="shop-title">Tüm Kitaplar</h1>
-        <p class="shop-subtitle micro-quote">Kadir Veral ile bir edebiyat yolculuğu</p>
+        <p class="micro-quote">Kadir Veral ile bir edebiyat yolculuğu</p>
         <div class="shop-toolbar">
-          <div class="shop-toolbar-left">
-            <select class="shop-sort" aria-label="Sırala">
-              <option value="default">Sırala</option>
-              <option value="az">A-Z</option>
-              <option value="za">Z-A</option>
-              <option value="yenideneskiye">Yeni - Eski</option>
-              <option value="eskidenyeniye">Eski - Yeni</option>
-            </select>
-          </div>
+          <div class="shop-toolbar-left"></div>
           <div class="shop-toolbar-center">
             <button class="shop-chip active" data-filter="*">Tümü</button>
             <button class="shop-chip" data-filter="Roman">Roman</button>
@@ -659,6 +651,26 @@
           <span><i class="fas fa-shield-alt"></i>  Güvenli iletişim</span>
           <span><i class="fas fa-truck"></i> Hızlı Kargo</span>
           <span><i class="fas fa-book"></i> İmza seçeneği</span>
+        </div>
+      </section>
+
+      <!-- Invite CTA: link to contact form -->
+      <section class="cta-invite">
+        <div class="container">
+          <div class="cta-invite-inner">
+            <div class="cta-copy">
+              <div class="cta-eyebrow">Okul Buluşmaları</div>
+              <h2 class="cta-title">Beni okulunuzda görmek ister misiniz?</h2>
+              <p class="cta-desc">Öğrencilerle okuma kültürü, hayal gücü ve yazma cesareti üzerine keyifli bir söyleşi için davet edebilirsiniz.</p>
+            </div>
+            <div class="cta-actions">
+              <a class="cta-btn-primary" href="form.html?konu=Okul%20Buluşması">
+                <span>İletişim Formuna Git</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a class="cta-btn-secondary" href="haberler.html#news-list">Haberleri Gör</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -931,24 +943,7 @@
         });
       });
 
-      // Simple sort by title
-      const sortSelect = document.querySelector(".shop-sort");
-      const grid = document.querySelector(".shop-grid");
-      sortSelect?.addEventListener("change", () => {
-        const items = Array.from(grid.children);
-        if (sortSelect.value === "az" || sortSelect.value === "za") {
-          items.sort((a, b) => {
-            const ta = a.querySelector(".shop-title-sm").textContent.trim();
-            const tb = b.querySelector(".shop-title-sm").textContent.trim();
-            return sortSelect.value === "az"
-              ? ta.localeCompare(tb, "tr")
-              : tb.localeCompare(ta, "tr");
-          });
-        } else {
-          // restore original order: do nothing for now
-        }
-        items.forEach((el) => grid.appendChild(el));
-      });
+      // Sorting removed
     </script>
 
     <footer class="footer">
