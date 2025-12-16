@@ -1211,7 +1211,8 @@ body {
 
 @media (max-width: 768px) {
     .books-section {
-        padding: 80px 12px 100px;
+        padding: 100px 12px 100px;
+        /* üst boşluğu artır */
     }
 
     .books-container {
@@ -1240,7 +1241,9 @@ body {
 
     .book-more-info {
         font-size: 0.7rem;
-        padding: 8px 12px;
+        padding: 7px 12px;
+        min-width: 150px;
+        /* mobilde daha küçük */
     }
 
     .book-card {
@@ -1255,7 +1258,8 @@ body {
 
 @media (max-width: 480px) {
     .books-section {
-        padding: 60px 12px 80px;
+        padding: 90px 12px 80px;
+        /* üst boşluğu artır */
     }
 
     .section-title {
@@ -1285,8 +1289,10 @@ body {
     }
 
     .book-more-info {
-        font-size: 0.65rem;
+        font-size: 0.62rem;
         padding: 6px 10px;
+        min-width: 120px;
+        /* çok dar telefonlarda daha küçük */
     }
 
     .book-card {
@@ -2542,7 +2548,7 @@ body.no-scroll {
 @media (max-width: 900px) {
     .hero {
         min-height: auto;
-        padding: 90px 0 50px;
+        padding: 90px 0 60px;
     }
 
     .hero-content {
@@ -2577,7 +2583,8 @@ body.no-scroll {
     }
 
     .books-section {
-        padding: 80px 30px 100px;
+        padding: 110px 30px 100px;
+        /* daha fazla üst boşluk */
     }
 
     .books-grid {
