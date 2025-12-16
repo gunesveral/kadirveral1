@@ -275,7 +275,7 @@
             </div>
 
             <div class="form-grid">
-                <form class="form-card" action="#" method="post" novalidate>
+                <form class="form-card" action="/api/form" method="post" novalidate>
                     <div class="form-row">
                         <div class="form-field">
                             <label for="name">Ad Soyad</label>
@@ -337,16 +337,48 @@
             else header.classList.remove('scrolled');
         });
 
-        // Lightweight success feedback for the contact form
+        // Submit to API and show proper success/error feedback
         const formEl = document.querySelector('.form-card');
         const successBox = document.querySelector('.success-msg');
         if (formEl && successBox) {
-          formEl.addEventListener('submit', (e) => {
+          formEl.addEventListener('submit', async (e) => {
             e.preventDefault();
-            successBox.style.display = 'block';
-            formEl.reset();
-            // Scroll into view for visibility on small screens
-            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const btn = formEl.querySelector('button[type="submit"]');
+            const data = {
+              name: formEl.name.value.trim(),
+              email: formEl.email.value.trim(),
+              topic: formEl.topic.value || document.querySelector('#topic-custom [aria-selected="true"]')?.dataset.value || '',
+              phone: formEl.phone.value.trim(),
+              message: formEl.message.value.trim()
+            };
+
+            // basic guard
+            if (!data.name || !data.email || !data.message || !data.topic) {
+              alert('Lütfen gerekli alanları doldurunuz.');
+              return;
+            }
+
+            try {
+              btn && (btn.disabled = true, btn.textContent = 'Gönderiliyor...');
+              const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
+              const payload = await res.json().catch(() => ({}));
+              if (res.ok && payload.ok) {
+                successBox.style.display = 'block';
+                formEl.reset();
+                successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              } else {
+                const msg = payload.error || 'Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.';
+                alert(msg);
+              }
+            } catch (err) {
+              alert('Bağlantı hatası. Lütfen daha sonra tekrar deneyin.');
+            } finally {
+              if (btn) { btn.disabled = false; btn.textContent = 'Mesajı İlet'; }
+            }
           });
         }
 

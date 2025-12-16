@@ -1222,10 +1222,10 @@ body {
 
     .books-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 20px;
         max-width: 100%;
         margin: 0 auto 50px;
-        padding: 0 8px;
+        padding: 0 10px;
     }
 
     .book-cover-wrapper {
@@ -1273,8 +1273,8 @@ body {
 
     .books-grid {
         max-width: 100%;
-        gap: 12px;
-        padding: 0 6px;
+        gap: 18px;
+        padding: 0 8px;
     }
 
     .book-cover-wrapper {
