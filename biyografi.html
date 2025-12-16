@@ -165,7 +165,28 @@
           0 18px 38px rgba(10,24,52,.16),
           0 6px 14px rgba(10,24,52,.08);
       }
-      .biography-page .highlight-title { font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: .02em; }
+      .biography-page .highlight-title {
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 8px;
+        letter-spacing: .02em;
+        font-size: 1.06rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .biography-page .highlight-title::before{
+        content: '';
+        width: 9px; height: 9px; border-radius: 999px;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(184,58,58,.14);
+      }
+      .biography-page .highlight-title::after{
+        content: '';
+        flex: 1 1 auto; height: 2px; border-radius: 999px;
+        background: linear-gradient(90deg, rgba(184,58,58,.38), rgba(11,28,62,.16));
+        box-shadow: 0 2px 6px rgba(11,28,62,.08);
+      }
       .biography-page .highlight-text { color: var(--muted); font-size: .95rem; }
       @media (max-width: 1024px){ .biography-page .bio-grid { grid-template-columns: 1fr; } }
       @media (max-width: 700px){ .biography-page .highlights { grid-template-columns: 1fr; } }
