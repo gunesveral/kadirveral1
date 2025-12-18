@@ -708,7 +708,7 @@ Ya sen, geçmişin tam ortasında uyansaydın? Eğitimci Usta kalem Kadir VERAL'
           year: "2024",
           rating: 4.5,
           description:
-            "İris, derin duygusal katmanları ve zengin karakter gelişimiyle okuyucuları etkileyen bir roman.",
+            "İris, aynı sokakları paylaşmalarına rağmen yok sayılanların, kimliği nedeniyle dışlananların ve yaşam alanları ellerinden alınanların hikâyesini anlatır. Çocukluğunu doya doya yaşayamayan, kendisine biçilen cinsiyeti reddettiği için uzun ve meşakkatli bir yolculuğa zorlanan bir köy çocuğunun gözünden; Maraş’ta, Çorum’da, yakılan evlerde ve susturulan hayatlarda yankılanan ortak bir acıyı görünür kılar. Bu roman, yalnızca bireysel bir yaşam öyküsü değil; bastırılan kimliklerin, ötelenen hayatların ve sessiz bırakılan isyanların kolektif hafızasıdır.",
           summary:
             "İris, hayatın farklı yönlerini keşfeden, derin duygusal katmanları ve zengin karakter gelişimiyle okuyucuları etkileyen bir roman. Her sayfasında yeni bir keşif ve duygusal bir yolculuk sunar.",
           toc: [
@@ -919,20 +919,30 @@ Ya sen, geçmişin tam ortasında uyansaydın? Eğitimci Usta kalem Kadir VERAL'
       const quoteEl = document.getElementById("bookQuote");
       if (quoteEl) quoteEl.textContent = book.quote;
 
-      // Inject per-book promo video with fallback sources (section stays visible with placeholder if none works)
+      // Handle video section visibility per book
       (function(){
+        const section = document.getElementById('detailVideoSection');
+        const videoEl = document.getElementById('detailVideo');
+        
+        if (!section || !videoEl) return;
+        
+        // Books that should have video section hidden completely
+        const booksWithoutVideoSection = ['iris', '3-kadin-2-ask-1-adam'];
+        
+        if (booksWithoutVideoSection.includes(bookId)) {
+          section.style.display = 'none';
+          return;
+        }
+        
+        // Video sources for books that have videos
         const candidatesMap = {
           'kiraz-sofrasi': ['video/3.mp4'],
           'yildizlardan-gelen-misafir': ['video/4.mp4'],
           'amazonlarin-sirri': ['video/1.mp4'],
           'zaman-makinesinde-gecmise-yolculuk': ['video/2.mp4']
         };
-        const section = document.getElementById('detailVideoSection');
-        const videoEl = document.getElementById('detailVideo');
+        
         const list = candidatesMap[bookId] || [];
-
-        if (!section || !videoEl) return;
-
         section.style.display = '';
         videoEl.setAttribute('poster', book.image || 'public/placeholder.webp');
         videoEl.setAttribute('playsinline', '');
