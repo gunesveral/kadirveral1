@@ -1,4 +1,138 @@
     <style>
+      /* WhatsApp Order Button Styles */
+      .whatsapp-order {
+        margin: 25px 0;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      /* Modern WhatsApp Button */
+      .shop-wa-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 22px;
+        background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        width: auto;
+        min-width: 200px;
+        max-width: 280px;
+        height: auto;
+        min-height: 44px;
+      }
+      
+      /* Button Hover Effect */
+      .shop-wa-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      
+      .shop-wa-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(18, 140, 126, 0.35);
+      }
+      
+      .shop-wa-btn:hover::before {
+        opacity: 1;
+      }
+      
+      /* Ripple Effect */
+      .shop-wa-btn::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background: radial-gradient(circle, #fff 10%, transparent 10.01%) no-repeat 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform 0.6s, opacity 1s;
+      }
+      
+      .shop-wa-btn:active::after {
+        transform: scale(0, 0);
+        opacity: 0.2;
+        transition: 0s;
+      }
+      
+      /* Icon Animation */
+      .shop-wa-btn i {
+        font-size: 1.3em;
+        transition: transform 0.3s ease;
+      }
+      
+      .shop-wa-btn:hover i {
+        animation: pulse 1.5s infinite;
+      }
+      
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+      }
+      
+      /* Mobile Optimizations */
+      @media (max-width: 768px) {
+        .whatsapp-order {
+          margin: 15px 0;
+          text-align: center;
+        }
+        
+        .shop-wa-btn {
+          padding: 10px 20px;
+          font-size: 0.95rem;
+          max-width: 100%;
+          min-width: 180px;
+          border-radius: 24px;
+          box-shadow: 0 3px 12px rgba(18, 140, 126, 0.25);
+          min-height: 44px;
+        }
+        
+        .shop-wa-btn i {
+          font-size: 1.2em;
+        }
+        
+        /* Disable hover effects on touch devices */
+        @media (hover: none) {
+          .shop-wa-btn:hover {
+            transform: none;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+          }
+          
+          .shop-wa-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 10px rgba(18, 140, 126, 0.3);
+          }
+        }
+      }
+      
       /* Page-scoped tweaks for Bestsellers area */
       .related-books-section.bestsellers { position: relative; }
       .related-books-section.bestsellers .bestsellers-band { position: relative; z-index: 1; }
@@ -330,6 +464,11 @@
             <div class="detail-meta" id="bookMeta"></div>
             <div class="detail-rating" id="bookRating"></div>
             <p class="detail-desc" id="bookDescription"></p>
+            <div class="whatsapp-order">
+              <a href="#" id="whatsappOrderBtn" class="shop-wa-btn">
+                <i class="fab fa-whatsapp"></i> HEMEN SİPARİŞ VER
+              </a>
+            </div>
           </div>
         </div>
         <!-- Book video section (populated by JS per book) -->
@@ -409,6 +548,20 @@
     </footer>
 
     <script>
+      // WhatsApp Order Button Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const whatsappBtn = document.getElementById('whatsappOrderBtn');
+        
+        whatsappBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const bookTitle = document.getElementById('bookTitle').textContent;
+          const phoneNumber = '905434437828'; // Your WhatsApp number with country code
+          const message = `Merhaba, "${bookTitle}" kitabınızı sipariş etmek istiyorum.`;
+          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+        });
+      });
+      
       // Book data
       const booksData = {
         "kiraz-sofrasi": {
