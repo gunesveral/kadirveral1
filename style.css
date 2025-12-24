@@ -6537,4 +6537,10 @@ body.no-scroll {
     .featured-book-cover-wrapper {
         max-width: 480px;
     }
+}/* Footer text override: use body font and disable ligatures for clearer 'g' */
+.footer-bottom p {
+  font-family: var(--font-body);
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0;
 }
