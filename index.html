@@ -750,12 +750,15 @@
         }
       });
 
-      // Hero parallax effect
+      // Hero parallax effect (sadece masaüstü için, mobilde sabit kalsın)
       const heroBgImage = document.querySelector(".hero-bg-image");
       const heroContent = document.querySelector(".hero-content");
 
       if (heroBgImage && heroContent) {
-        window.addEventListener("scroll", () => {
+        const enableParallax = () => window.innerWidth >= 900;
+
+        const onScroll = () => {
+          if (!enableParallax()) return;
           const scrolled = window.pageYOffset;
           const heroSection = document.querySelector(".hero");
           const heroHeight = heroSection.offsetHeight;
@@ -767,8 +770,13 @@
             }px)`;
             heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
             heroContent.style.opacity = 1 - (scrolled / heroHeight) * 0.5;
+          } else {
+            heroContent.style.opacity = 0.5;
           }
-        });
+        };
+
+        window.addEventListener("scroll", onScroll);
+        window.addEventListener("resize", onScroll);
       }
     </script>
   </body>
