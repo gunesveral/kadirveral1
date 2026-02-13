@@ -230,6 +230,14 @@
         text-align: center;
         font-size: 1.25rem;
       }
+      /* Honeypot alanını tamamen gizle */
+      .hp-wrapper {
+        position: absolute !important;
+        left: -9999px !important;
+        width: 1px !important;
+        height: 1px !important;
+        overflow: hidden !important;
+      }
     </style>
 </head>
 
@@ -276,6 +284,12 @@
 
             <div class="form-grid">
                 <form class="form-card" action="/api/form" method="post" novalidate>
+                    <!-- Botlara karşı honeypot ve zaman damgası -->
+                    <div class="hp-wrapper" aria-hidden="true">
+                      <label for="website">Website</label>
+                      <input type="text" id="website" name="website" autocomplete="off" tabindex="-1">
+                    </div>
+                    <input type="hidden" name="form_ts" id="form_ts">
                     <div class="form-row">
                         <div class="form-field">
                             <label for="name">Ad Soyad</label>
@@ -341,15 +355,25 @@
         const formEl = document.querySelector('.form-card');
         const successBox = document.querySelector('.success-msg');
         if (formEl && successBox) {
+          // Form yüklendiğinde zaman damgasını ayarla
+          const tsInput = formEl.querySelector('input[name="form_ts"]');
+          if (tsInput) {
+            tsInput.value = String(Date.now());
+          }
+
           formEl.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = formEl.querySelector('button[type="submit"]');
+            const hp = formEl.querySelector('input[name="website"]')?.value || '';
+            const formTs = formEl.querySelector('input[name="form_ts"]')?.value || '';
             const data = {
               name: formEl.name.value.trim(),
               email: formEl.email.value.trim(),
               topic: formEl.topic.value || document.querySelector('#topic-custom [aria-selected="true"]')?.dataset.value || '',
               phone: formEl.phone.value.trim(),
-              message: formEl.message.value.trim()
+              message: formEl.message.value.trim(),
+              website: hp,
+              form_ts: formTs
             };
 
             // basic guard

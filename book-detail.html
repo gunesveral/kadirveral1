@@ -747,6 +747,34 @@ Ya sen, geçmişin tam ortasında uyansaydın? Eğitimci Usta kalem Kadir VERAL'
           ],
           quote: '"Aşk, sayılarla ölçülemez, sadece hissedilir."',
         },
+        "yalniz-kurt": {
+          title: "Yalnız Kurt",
+          image: "public/16.webp",
+          category: "Roman",
+          badges: ["Roman", "Dram", "Yetişkin"],
+          price: "$28.00",
+          author: "Kadir Veral",
+          publisher: "Sankofa Yayınları",
+          pages: "320",
+          year: "2025",
+          rating: 4.0,
+          description:
+            "Dört aylık bir kurt yavrusunun hayatta kalma şansı nedir?\n\nGökçe’nin dünyası, bir gece içinde paramparça oldu. Avcılar, sürüsünü dağıttı Annesini, kardeşlerini öldürdüler. Baba Kurt ile Amca Kurt kayıplara karıştı. Gökçe, bir anda kendini ormanın ortasında, yalnız, aç ve korku içinde buldu. Avlanmayı bilmiyor, hayatta kalma güdüsü ise zayıftı.\n\nAncak Gökçe, kurtuluşu hiç beklemediği bir yerde buldu: Yaralı ve kurnaz bir tilki olan Kızılkuyruk’un yanında. Kızılkuyruk, Gökçe’ye avlanmayı değil; hayatta kalmayı, savaşmayı ve Kayaları Okuma sanatını öğretti.\n\nŞimdi Gökçe’nin tek bir amacı var: Batı Dağları`nda izini bulduğu ailesine ulaşmak. \n\nFakat ailesi sadece kaçmıyor; büyük bir sırrı da yanlarında taşıyorlar. Soyu tükenmekte olan Ak Geyik Yavrusu’nu. Avcılar, bu sırrın peşinde, intikam ateşiyle yanıyor. Gökçe`nin yolculuğu, sadece bir kurt yavrusunun hayatta kalma mücadelesi olmaktan çıkıp, tüm ormanın ve Kadim Yemin`in geleceği için verilen son savaşa dönüşüyor.\n\nGökçe, yalnız bir kurt olarak başladığı bu yolda, ailesinin mirasını ve içindeki Koruyucu gücü bulabilecek mi? Yoksa Batı Dağları, ona sonsuza dek sürecek bir kış mı yaşatacak?\n\nCesaretin, en beklenmedik dostluklardan doğduğu bu destansı macerayı severek okuyacağınızı ümit ediyorum.\n\nSevgilerimle\nKadir Veral",
+          summary:
+            "Dört aylık bir kurt yavrusunun hayatta kalma şansı nedir?\n\nGökçe’nin dünyası, bir gece içinde paramparça oldu. Avcılar, sürüsünü dağıttı Annesini, kardeşlerini öldürdüler. Baba Kurt ile Amca Kurt kayıplara karıştı. Gökçe, bir anda kendini ormanın ortasında, yalnız, aç ve korku içinde buldu. Avlanmayı bilmiyor, hayatta kalma güdüsü ise zayıftı.\n\nAncak Gökçe, kurtuluşu hiç beklemediği bir yerde buldu: Yaralı ve kurnaz bir tilki olan Kızılkuyruk’un yanında. Kızılkuyruk, Gökçe’ye avlanmayı değil; hayatta kalmayı, savaşmayı ve Kayaları Okuma sanatını öğretti.\n\nŞimdi Gökçe’nin tek bir amacı var: Batı Dağları`nda izini bulduğu ailesine ulaşmak. \n\nFakat ailesi sadece kaçmıyor; büyük bir sırrı da yanlarında taşıyorlar. Soyu tükenmekte olan Ak Geyik Yavrusu’nu. Avcılar, bu sırrın peşinde, intikam ateşiyle yanıyor. Gökçe`nin yolculuğu, sadece bir kurt yavrusunun hayatta kalma mücadelesi olmaktan çıkıp, tüm ormanın ve Kadim Yemin`in geleceği için verilen son savaşa dönüşüyor.\n\nGökçe, yalnız bir kurt olarak başladığı bu yolda, ailesinin mirasını ve içindeki Koruyucu gücü bulabilecek mi? Yoksa Batı Dağları, ona sonsuza dek sürecek bir kış mı yaşatacak?\n\nCesaretin, en beklenmedik dostluklardan doğduğu bu destansı macerayı severek okuyacağınızı ümit ediyorum.\n\nSevgilerimle\nKadir Veral",
+          toc: [
+            "Sessiz Başlangıç",
+            "Kasabaya Dönüş",
+            "Eski Yüzler",
+            "Yarım Kalan Hesaplar",
+            "Fırtına Gecesi",
+            "Kırılma Noktası",
+            "Yalnızlık ve Özgürlük",
+            "Yeni Bir Yol",
+          ],
+          quote:
+            '"Cesaretin, en beklenmedik dostluklardan doğduğu bu destansı macera."',
+        },
       };
 
       // Get book from URL
@@ -927,7 +955,7 @@ Ya sen, geçmişin tam ortasında uyansaydın? Eğitimci Usta kalem Kadir VERAL'
         if (!section || !videoEl) return;
         
         // Books that should have video section hidden completely
-        const booksWithoutVideoSection = ['iris', '3-kadin-2-ask-1-adam'];
+        const booksWithoutVideoSection = ['iris', '3-kadin-2-ask-1-adam', 'yalniz-kurt'];
         
         if (booksWithoutVideoSection.includes(bookId)) {
           section.style.display = 'none';

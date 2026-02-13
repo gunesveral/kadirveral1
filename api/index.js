@@ -27,7 +27,21 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 // Contact endpoint (JSON API)
 export const contactHandler = async (req, res) => {
   try {
-    const { name, email, topic, phone, message } = req.body || {};
+    const { name, email, topic, phone, message, website, form_ts } = req.body || {};
+
+    // Honeypot: bot'lar genelde tüm alanları doldurur, bu alan doluysa spam kabul et
+    if (website) {
+      console.warn('Spam blocked by honeypot (contactHandler)', { email, topic });
+      return res.status(200).json({ ok: true, message: 'Mesajınız başarıyla gönderildi!' });
+    }
+
+    // Çok hızlı gönderim kontrolü (basit anti-bot): sayfa açıldıktan <2 sn sonra gelenleri reddet
+    const now = Date.now();
+    const tsNum = Number(form_ts);
+    if (form_ts && Number.isFinite(tsNum) && now - tsNum < 2000) {
+      console.warn('Spam blocked by timing (contactHandler)', { email, topic });
+      return res.status(200).json({ ok: true, message: 'Mesajınız başarıyla gönderildi!' });
+    }
 
     if (!name || !email || !message || !topic) {
       return res.status(400).json({
@@ -258,7 +272,21 @@ app.post('/contact', contactHandler);
 // HTML form fallback (for traditional form submission)
 export const formHandler = async (req, res) => {
   try {
-    const { name, email, topic, phone, message } = req.body || {};
+    const { name, email, topic, phone, message, website, form_ts } = req.body || {};
+
+    // Honeypot kontrolü
+    if (website) {
+      console.warn('Spam blocked by honeypot (formHandler)', { email, topic });
+      return res.redirect(303, '/form.html?success=true');
+    }
+
+    // Çok hızlı gönderim kontrolü
+    const now = Date.now();
+    const tsNum = Number(form_ts);
+    if (form_ts && Number.isFinite(tsNum) && now - tsNum < 2000) {
+      console.warn('Spam blocked by timing (formHandler)', { email, topic });
+      return res.redirect(303, '/form.html?success=true');
+    }
 
     if (!name || !email || !message || !topic) {
       return res.redirect(303, '/form.html?error=missing');
