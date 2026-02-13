@@ -6423,9 +6423,10 @@ body.no-scroll {
         line-height: 1.85;
         font-style: normal;
         letter-spacing: 0.01em;
-        text-align: justify;
-        text-justify: inter-word;
-        hyphens: auto;
+        /* Mobilde kelimeler arası boşlukların dağılmaması için sola yaslı tut */
+        text-align: left;
+        text-justify: auto;
+        hyphens: none;
         margin-left: auto;
         margin-right: auto;
         max-width: 62ch;
